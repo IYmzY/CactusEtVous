@@ -1,34 +1,34 @@
 @font-face {
     font-family: "SF Display";
-    src: url(./fonts/SF-Pro-Display-Regular.otf);
+    src: url(../fonts/SF-Pro-Display-Regular.otf);
     font-weight: 400;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Display";
-    src: url(./fonts/SF-Pro-Display-Bold.otf);
+    src: url(../fonts/SF-Pro-Display-Bold.otf);
     font-weight: 700;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Text";
-    src: url(./fonts/SF-Pro-Text-Regular.otf);
+    src: url(../fonts/SF-Pro-Text-Regular.otf);
     font-weight: 400;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Text";
-    src: url(./fonts/SF-Pro-Text-Semibold.otf);
+    src: url(../fonts/SF-Pro-Text-Semibold.otf);
     font-weight: 600;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Text";
-    src: url(./fonts/SF-Pro-Text-Bold.otf);
+    src: url(../fonts/SF-Pro-Text-Bold.otf);
     font-weight: 700;
     font-style: normal;
   }
-  
+
 *{
     font-family: 'SF Display', sans-serif;
 }
@@ -49,17 +49,24 @@ body{
         }
         p{
             font-size: 34px;
-            width: 1200px;
+            max-width: 1200px;
             text-align: center;
             margin: 30px 0px;
             em{
                 color: rgb(26, 114, 32);
                 font-weight: 700;
             }
+            @media screen and (max-width: 768px){
+                font-size: 24px; 
+            }
         }
         h1{
             font-size: 72px;
+            text-align: center;
             font-weight: 700;
+            @media screen and (max-width: 768px){
+                font-size: 34px; 
+            }
         }
         
     }
