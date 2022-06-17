@@ -6,31 +6,31 @@
   }
   @font-face {
     font-family: "SF Display";
-    src: url(../fonts/SF-Pro-Display-Bold.otf);
+    src: url(./fonts/SF-Pro-Display-Bold.otf);
     font-weight: 700;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Text";
-    src: url(../fonts/SF-Pro-Text-Regular.otf);
+    src: url(./fonts/SF-Pro-Text-Regular.otf);
     font-weight: 400;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Text";
-    src: url(../fonts/SF-Pro-Text-Semibold.otf);
+    src: url(./fonts/SF-Pro-Text-Semibold.otf);
     font-weight: 600;
     font-style: normal;
   }
   @font-face {
     font-family: "SF Text";
-    src: url(../fonts/SF-Pro-Text-Bold.otf);
+    src: url(./fonts/SF-Pro-Text-Bold.otf);
     font-weight: 700;
     font-style: normal;
   }
 
 *{
-    font-family: 'SF Display', sans-serif;
+    font-family: 'SF Display', sans-serif !important;
 }
 body{
     width: 100%;
