@@ -30,7 +30,7 @@ body {
       text-align: center;
       margin: 30px 0px;
       em {
-        color: rgb(26, 114, 32);
+        color: #54d077;
         font-weight: 700;
       }
       @media screen and (max-width: 768px) {
@@ -86,4 +86,38 @@ body {
     justify-content: center;
     font-size: 14px;
   }
+}
+.modal-form {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  position: absolute;
+  top: 0;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .cross-form {
+    position: absolute;
+    top: 0;
+    right: 23vw;
+    padding: 1rem;
+    cursor: pointer;
+  }
+}
+.btn-enquete {
+  margin-top: 1rem;
+  border: #54d077 solid 2px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.btn-enquete:hover {
+  color: #54d077;
+  border: black solid 2px;
 }
