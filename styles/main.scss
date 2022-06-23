@@ -11,8 +11,9 @@ body {
   h5,
   h6 {
     font-family: "SF Display", sans-serif;
+    letter-spacing: 3px;
   }
-  > div {
+  .main-container {
     height: calc(100% - 60px);
     width: 100%;
     display: flex;
@@ -26,7 +27,8 @@ body {
     }
     p {
       font-size: 34px;
-      max-width: 1200px;
+      width: 80vw;
+      letter-spacing: 2px;
       text-align: center;
       margin: 30px 0px;
       em {
