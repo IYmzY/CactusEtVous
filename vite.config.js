@@ -7,6 +7,8 @@ module.exports = defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
+                privacypolicy: resolve(__dirname, 'privacy-policy.html'),
+
             }
         }
     }

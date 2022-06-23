@@ -96,7 +96,7 @@ body {
   background-color: rgba($color: #000000, $alpha: 0.8);
   width: 100vw;
   height: 100vh;
-  display: flex;
+  display: none;
   justify-content: center;
   overflow: auto;
   &::-webkit-scrollbar {
@@ -120,4 +120,55 @@ body {
 .btn-enquete:hover {
   color: #54d077;
   border: black solid 2px;
+}
+
+.container{
+  min-height: auto;
+  height: auto;
+  width: auto;
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+  p{
+    text-align: justify;
+  }
+  
+  .mention-legal, .conf{
+   h2{
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+   }
+   h3{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+   }
+   h4{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+   }
+   p{
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 20px;
+   }
+   p:last-child{
+    margin-bottom: 2rem;
+   }
+   ul{
+    ul{
+      list-style-type: disc;
+    }
+    display: block;
+   }
+  }
+
+  .mention-legal{
+    width: 100%;
+  }
 }
