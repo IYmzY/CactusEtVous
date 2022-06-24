@@ -81,33 +81,6 @@ body {
       height: 55%;
       display: flex;
       justify-content: center;
-<<<<<<< HEAD
-      padding: 3rem 0;
-      .title-container {
-        font-family: "Retroica";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 96px;
-        line-height: 96px;
-        text-transform: uppercase;
-        color: rgba(249, 249, 249, 0.75);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        p {
-          width: 100vw;
-          .title-underline {
-            text-decoration: underline;
-            text-underline-position: from-font;
-          }
-        }
-        p:first-child {
-          padding-left: 10%;
-        }
-        p:nth-child(2) {
-          padding-left: 30%;
-        }
-=======
       gap: 20px;
     }
     p {
@@ -121,7 +94,6 @@ body {
       }
       @media screen and (max-width: 768px) {
         font-size: 24px;
->>>>>>> master
       }
     }
     .scroll-down-container {
