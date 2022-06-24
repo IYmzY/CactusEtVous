@@ -50,7 +50,7 @@ window.onload = function () {
         document.querySelector('.mouse').style.opacity = position;
     }
 
-    $(document.body).on('touchmove', mobilScroll);
+    (document.body).on('touchmove', mobilScroll);
 
     function mobilScroll() {
         if (window.pageYOffset > sticky ) {

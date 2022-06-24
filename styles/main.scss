@@ -386,6 +386,12 @@ form {
     cursor: pointer;
     margin-left: 5px;
   }
+  .mc-field-group{
+    text-align: center;
+    button{
+      margin-top: 20px;
+    }
+  }
 }
 
 .modal-form {
@@ -484,18 +490,27 @@ main {
     width: 1300px;
     margin: 0 auto;
 
+    @media screen and (max-width: 768px) {
+      width: 320px;
+    }
+
     .main-conteneur {
       margin-top: 110px;
       position: relative;
       height: 350px;
+      @media screen and (max-width: 768px) {
+        width: 320px;
+        margin-top: 0;
+        height: 375px;
+       }
 
       >div {
         display: flex;
         flex-direction: row;
         height: 100%;
+
         @media screen and (max-width:768px) {
           flex-direction: column;
-
         }
       }
 
@@ -503,6 +518,15 @@ main {
         position: absolute;
         font-size: 50px;
         letter-spacing: 20px;
+
+        @media screen and (max-width: 768px) {
+          position: relative;
+          text-align: center;
+          font-size: 23px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          letter-spacing: 10px;
+        }
       }
 
       .green {
@@ -513,12 +537,22 @@ main {
         right: 25px;
         z-index: 2;
         top: 10px;
+
+        @media screen and (max-width: 768px) {
+          right: auto;
+          z-index: 0;
+        }
       }
 
       .gauche {
-        left: 5vw;
+        left: 50px;
         z-index: 999;
         top: 10px;
+
+        @media screen and (max-width: 768px) {
+          left: auto;
+          z-index: 0;
+        }
       }
 
       .blue {
@@ -527,6 +561,9 @@ main {
 
       .beige {
         color: #D8B9AC;
+        @media screen and (max-width: 768px) {
+        margin-top: 125px;
+        }
       }
 
       .conteneur-img {
@@ -540,6 +577,11 @@ main {
         background-position: center;
         background-size: cover;
         border-radius: 20px;
+        @media screen and (max-width: 768px) {
+          height: 150px;
+          width: 100%;
+          border-radius: 0;
+        }
       }
 
       .img2 {
@@ -547,6 +589,13 @@ main {
         background-position: center top;
         background-size: cover;
         border-radius: 20px;
+        @media screen and (max-width: 768px) {
+          background-position: center;
+          height: 150px;
+          min-height: 200px;
+          width: 100%;
+          border-radius: 0;
+        }
       }
 
       .img3 {
@@ -554,6 +603,11 @@ main {
         background-position: center;
         background-size: cover;
         border-radius: 20px;
+        @media screen and (max-width: 768px) {
+          height: 150px;
+          width: 100%;
+          border-radius: 0;
+        }
       }
 
       .text {
@@ -562,24 +616,54 @@ main {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Nueu Plak";
+        font-family: "Neue Plak";
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          padding-top: 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+        }
+
+        p{
+          span{
+            border: none;
+          }
+        }
+       
 
         >div {
           width: 70%;
-          p:last-child{
+          margin-top: 10px;
+
+          p:last-child {
             margin-top: 20px;
+            margin-bottom: 10px;
           }
-        }
-        span{
-          border: none;
+          p{
+            @media screen and (max-width:728px) {
+              font-size: 13px;
+            }
+          }
+
         }
       }
-      span{
-        border-bottom: 10px solid;
-      }
-    }
-    .main-conteneur:last-child{
-      margin-bottom: 100px;
+  }
+
+  
+
+  .main-conteneur:last-child{
+    margin-bottom: 100px;
+  }
+
+  }
+  span{
+    border-bottom: 10px solid;
+    @media screen and (max-width:728px) {
+      border-bottom: none;
     }
   }
 }
