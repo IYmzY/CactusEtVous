@@ -68,231 +68,195 @@
             href="./public/touch-icon-ipad-retina.png" />
         <title>Escapee</title>
     </head>
-
     <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNBXLDC"
                 height="0"
                 width="0"
                 style="display:none;visibility:hidden"></iframe></noscript>
-        <!--     <header>
-        <div class="logo">
-            <img src="./images/logo.svg" alt="Logo Escapee" />
-        </div>
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Qui sommes-nous ?</a></li>
-            <li><a href="#">Newsletter</a></li>
-            <li><a class="btn" href="#">Se connecter</a></li>
-        </ul>
-    </header> -->
-
-        <main>
-            <section class="background">
-
-            </section>
-            <section>
-                <article class="main-conteneur">
+        <header>
+            <div class="logo">
+                <img src="./images/logo.svg" alt="Logo Escapee" />
+            </div>
+            <ul class="navbar">
+                <li class="close-navbar"><img src="/images/closeburger.svg" alt="closeNavbar"></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Newsletter</a></li>
+                <li><a class="btn" href="#">Se connecter</a></li>
+            </ul>
+            <div class="burger">
+                <img class="open-navbar" src="/images/menubuger.svg" alt="burger menu">
+            </div>
+        </header>
+    
+    <main>
+        <section class="background">
+            <article>
+                <div class="title-header">
                     <div>
-                        <div class="conteneur-img img1">
-
-                        </div>
-                        <div class="text">
-                            <h6 class="green droite">QUI SOMMES-<u>NOUS</u></h6>
-                            <div>
-                                <p>
-                                    Vous êtes à la recherche du lieu de repos idéal, où vous pourrez
-                                    être
-                                    tranquille ? Pour vous, les vacances s’apprécient seul, isolé,
-                                    et visent
-                                    à vous ressourcer ?
-                                </p>
-                                <p>
-                                    <span class="green">Escapee</span> vous propose des voyages clés
-                                    en
-                                    main, avec une immersion
-                                    garantie dans la nature, et l’assurance de la sérénité de votre
-                                    séjour.
-                                </p>
-                            </div>
-                        </div>
+                        <h1>évadez-vous</h1>
                     </div>
-
-                </article>
-                <article class="main-conteneur">
                     <div>
-                        <div class="text">
-                            <h6 class="blue gauche"><u>VOUS </u>ACCOMPAGNER</h6>
-                            <div>
-                                <p>
-                                    Que vous recherchiez la superbe villa d’un architecte de renom,
-                                    ou alors une expérience en immersion totale dans la nature,
-                                    <span class="green">Escapee</span> vous accompagne durant tout
-                                    le processus.
-                                </p>
-                                <p>
-                                    Du transport depuis votre domicile, jusqu’aux billets d’avion,
-                                    sans évidemment oublier transports sur place, et même jusqu’à
-                                    une conciergerie pour les destinations les plus reculées, vous
-                                    n’êtes jamais laissés seuls, pour vous offrir l’expérience la
-                                    plus complète et agréable !
-                                </p>
-                            </div>
-                        </div>
-                        <div class="conteneur-img img2">
-
-                        </div>
-                    </div>
-
-                </article>
-                <article class="main-conteneur">
-                    <div>
-                        <div class="conteneur-img img3">
-
-                        </div>
-                        <div class="text">
-                            <h6 class="beige droite">PLANIFIEZ <u>VOTRE</u> <br> VOYAGE</h6>
-                            <div>
-                                <p>
-                                    Cette partie du site est à venir ! <br>
-
-                                    Pour patienter, n’hésitez pas à vous inscrire à notre
-                                    newsletter, afin d’être au courant de l’avancée des projets,
-                                    ainsi que des nouveautés !
-                                </p>
-                                <div id="mc_embed_signup">
-                                    <p id="result_news"
-                                        style="display: none;"></p>
-                                    <form
-                                        action="https://Escapee.us9.list-manage.com/subscribe/post?u=8e71f96c5c933f5329444df27&amp;id=3ad5a89f21"
-                                        method="post"
-                                        id="mc-embedded-subscribe-form"
-                                        name="mc-embedded-subscribe-form"
-                                        class="validate"
-                                        target="_blank">
-                                        <div class="mc-field-group">
-                                            <input type="email"
-                                                value=""
-                                                name="EMAIL"
-                                                class="email"
-                                                id="mce-EMAIL"
-                                                placeholder="Votre adresse e-mail"
-                                                required>
-                                            <div style="position: absolute; left: -5000px;"
-                                                aria-hidden="true">
-                                                <input type="text"
-                                                    name="b_8e71f96c5c933f5329444df27_3ad5a89f21"
-                                                    tabindex="-1"
-                                                    value="">
-                                            </div>
-                                            <button type="submit"
-                                                name="subscribe"
-                                                id="mc-embedded-subscribe"
-                                                class="btn">S'inscrire</button>
-                                            <div id="subscribe-result">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </section>
-        </main>
-        <script type='text/javascript'
-            src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-        <script type='text/javascript'>
-            (function ($) {
-                window.fnames = new Array();
-                window.ftypes = new Array();
-                fnames[0] = 'EMAIL';
-                ftypes[0] = 'email';
-                fnames[1] = 'FNAME';
-                ftypes[1] = 'text';
-                fnames[2] = 'LNAME';
-                ftypes[2] = 'text';
-                fnames[3] = 'ADDRESS';
-                ftypes[3] = 'address';
-                fnames[4] = 'PHONE';
-                ftypes[4] = 'phone';
-                fnames[5] = 'BIRTHDAY';
-                ftypes[5] = 'birthday';
-            }(jQuery));
-            var $mcj = jQuery.noConflict(true);
-        </script>
-        <!-- End mc_embed_signup -->
-        <!-- </div> 
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-            <footer>
-        <ul>
-            <li>Accueil</li>
-            <li>Qui sommes-nous ?</li>
-            <li>Newsletter</li>
-            <li>Compte</li>
-        </ul>
-        <ul>
-            <li>Instagram</li>
-            <li>Instagram</li>
-            <li>Instagram</li>
-        </ul>
-        <div>
-            <p>© Copyright 2022</p>
-            <p>
-                <a href="privacy-policy.html">Mention légale, Politique de confidentialité</a>
-            </p>
-        </div>
-    </footer> -->
-
-        <!--     <div>
-        <div id="logo">
-            <img src="./images/logo.svg" alt="Logo Escapee" />
-        </div>
-        <h1>Encore un peu de patience...</h1>
-        <p>Nous vous préparons de belles choses que nous avons hâte de vous présenter ! Vous
-            pouvez vous inscrire
-            ci-dessous pour être tenu au courant de l’avancement du projet <em>Escapee</em>.</p>
-        <div id="mc_embed_signup">
-            <p id="result_news" style="display: none;"></p>
-            <form
-                action="https://Escapee.us9.list-manage.com/subscribe/post?u=8e71f96c5c933f5329444df27&amp;id=3ad5a89f21"
-                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                target="_blank">
-                <div class="mc-field-group">
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL"
-                        placeholder="Votre adresse e-mail" required>
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                        <input type="text" name="b_8e71f96c5c933f5329444df27_3ad5a89f21" tabindex="-1" value="">
-                    </div>
-                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn">S'inscrire</button>
-                    <div id="subscribe-result">
+                        <h2>retrouvez-vous</h2>
                     </div>
                 </div>
-            </form>
-        </div>
-        <h2>Si vous souhaitez contribuer à l'évolution de notre projet, vous pouvez également
-            participer à notre brêve enquête </h2>
-        <button class="btn-enquete">enquête</button>
-        <div class="modal-form">
-            <a class="cross-form"><img src="/images/cross.svg"></a>
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdKmFwYompyt6iEDJMsa9quEIy9sZu5FJJDvkp3GLagzIIomw/viewform?embedded=true"
-                width="640" height="4564" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </div>
+                <div class="enquete">
+                    <p>Trouvez la destination de vos rêves grâce à vos critères ! <br>Répondez simplement à cette
+                        brève enquête.</p>
+                    <button class="btn btn-enquete">Notre enquête</button>
+                    
+                </div>
+                <div class="mouse">
+                    <div class="mouse-shape">
+                      <div class="mouse-animation"></div>
+                    </div>
+                  </div>  
+            </article>
+        </section>
+        <section>
+            <article class="main-conteneur">
+                <div>
+                    <div class="conteneur-img img1">
 
-    <script
-        type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script> -->
-        <!--End mc_embed_signup-->
-        <!--   <footer>
-        <p>Escapee</p>
-        <p>© Copyright 2022</p>
-        <p>
-            <a href="privacy-policy.html">Mention légale, Politique de confidentialité</a>
-        </p>
-    </footer> -->
+                    </div>
+                    <div class="text">
+                        <h6 class="green droite">QUI SOMMES-<span class="green">NOUS</span></h6>
+                        <div>
+                            <p>
+                                Vous êtes à la recherche du lieu de repos idéal, où vous pourrez
+                                être
+                                tranquille ? Pour vous, les vacances s’apprécient seul, isolé,
+                                et visent
+                                à vous ressourcer ?
+                            </p>
+                            <p>
+                                <span class="green">Escapee</span> vous propose des voyages clés
+                                en
+                                main, avec une immersion
+                                garantie dans la nature, et l’assurance de la sérénité de votre
+                                séjour.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+            <article class="main-conteneur">
+                <div>
+                    <div class="text">
+                        <h6 class="blue gauche"><span class="blue" >VOUS </span >ACCOMPAGNER</h6>
+                        <div>
+                            <p>
+                                Que vous recherchiez la superbe villa d’un architecte de renom,
+                                ou alors une expérience en immersion totale dans la nature,
+                                <span class="green">Escapee</span> vous accompagne durant tout
+                                le processus.
+                            </p>
+                            <p>
+                                Du transport depuis votre domicile, jusqu’aux billets d’avion,
+                                sans évidemment oublier transports sur place, et même jusqu’à
+                                une conciergerie pour les destinations les plus reculées, vous
+                                n’êtes jamais laissés seuls, pour vous offrir l’expérience la
+                                plus complète et agréable !
+                            </p>
+                        </div>
+                    </div>
+                    <div class="conteneur-img img2">
+
+                    </div>
+                </div>
+
+            </article>
+            <article class="main-conteneur">
+                <div>
+                    <div class="conteneur-img img3">
+
+                    </div>
+                    <div class="text">
+                        <h6 class="beige droite">PLANIFIEZ <span class="beige">VOTRE</span> <br> VOYAGE</h6>
+                        <div>
+                            <p>
+                                Cette partie du site est à venir ! <br>
+
+                                Pour patienter, n’hésitez pas à vous inscrire à notre
+                                newsletter, afin d’être au courant de l’avancée des projets,
+                                ainsi que des nouveautés !
+                            </p>
+                            <div id="mc_embed_signup">
+                                <p id="result_news"
+                                    style="display: none;"></p>
+                                <form
+                                    action="https://Escapee.us9.list-manage.com/subscribe/post?u=8e71f96c5c933f5329444df27&amp;id=3ad5a89f21"
+                                    method="post"
+                                    id="mc-embedded-subscribe-form"
+                                    name="mc-embedded-subscribe-form"
+                                    class="validate"
+                                    target="_blank">
+                                    <div class="mc-field-group">
+                                        <input type="email"
+                                            value=""
+                                            name="EMAIL"
+                                            class="email"
+                                            id="mce-EMAIL"
+                                            placeholder="Votre adresse e-mail"
+                                            required>
+                                        <div style="position: absolute; left: -5000px;"
+                                            aria-hidden="true">
+                                            <input type="text"
+                                                name="b_8e71f96c5c933f5329444df27_3ad5a89f21"
+                                                tabindex="-1"
+                                                value="">
+                                        </div>
+                                        <button type="submit"
+                                            name="subscribe"
+                                            id="mc-embedded-subscribe"
+                                            class="btn">S'inscrire</button>
+                                        <div id="subscribe-result">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <ul>
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Qui sommes-nous ?</a> </li>
+                <li><a href="">Newsletter</a> </li>
+                <li><a href="">Compte</a> </li>
+            </ul>
+            <ul>
+                <li><a href="">Instagram</a> </li>
+                <li><a href="">Instagram</a> </li>
+                <li><a href="">Instagram</a> </li>
+            </ul>
+            <div>
+                <p>© Copyright 2022</p>
+                <p>
+                    <a href="privacy-policy.html">Mention légale, Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
         <script type="module"
             src="./scripts/main.js"></script>
         <script type="module"
             src="./scripts/home.js"></script>
-    </body>
+
+    <div class="modal-form">
+        <a class="cross-form"><img src="/images/cross.svg"></a>
+        <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdKmFwYompyt6iEDJMsa9quEIy9sZu5FJJDvkp3GLagzIIomw/viewform?embedded=true"
+            width="640" height="4564" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/home.js"></script>
+</body>
 
 </html>
