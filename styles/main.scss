@@ -4,6 +4,7 @@ body {
   font-family: "Neue Plak", sans-serif;
   font-weight: 400;
   font-style: normal;
+
   h1,
   h2,
   h3,
@@ -12,54 +13,62 @@ body {
   h6 {
     font-family: "Retroica", sans-serif;
   }
+
   h1 {
     font-size: 96px;
     font-weight: 700;
+
     @media screen and (max-width: 768px) {
       font-size: 34px;
     }
   }
+
   p {
-    font-size: 25px;
+    font-size: 18px;
     text-align: justify;
+
     em {
       color: #54d077;
       font-weight: 800;
     }
+
     @media screen and (max-width: 768px) {
       font-size: 24px;
     }
   }
+
   a {
     color: #54d077;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
   }
-  main section:not(section.background),header,footer{
+
+  main section:not(section.background),
+  header,
+  footer {
     max-width: 1620px;
     margin: 0 auto;
   }
 }
 
 #result_news {
+  margin-top: 20px;
   font-size: 20px;
   color: rgb(135, 40, 40);
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0px 0px 30px 0px;
+  margin: 20px 0px 30px 0px;
 
   input {
     border-radius: 10px;
     border: 1px solid #000;
     padding: 10px;
   }
+
   button {
     border-radius: 10px;
     border: 1px solid #000;
@@ -84,9 +93,11 @@ form {
   display: none;
   justify-content: center;
   overflow: auto;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
   .cross-form {
     position: absolute;
     top: 0;
@@ -103,47 +114,153 @@ form {
   border-radius: 6px;
   text-transform: uppercase;
 }
+
 .btn-enquete:hover {
   color: #54d077;
   border: black solid 2px;
 }
-  
-.mention-legal, .conf{
-  h2{
 
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+.mention-legal,
+.conf {
+  h2 {
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
-  h3{
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
-  h4{
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
-  p{
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  line-height: 20px;
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 20px;
   }
-  p:last-child{
-  margin-bottom: 2rem;
+
+  p:last-child {
+    margin-bottom: 2rem;
   }
-  ul{
-  ul{
-    list-style-type: disc;
-  }
-  display: block;
+
+  ul {
+    ul {
+      list-style-type: disc;
+    }
+
+    display: block;
   }
 }
 
-.mention-legal{
+.mention-legal {
   width: 100%;
 }
 
+main {
+  section:not(section.background) {
+    width: 1300px;
+    margin: 0 auto;
+
+
+    .main-conteneur {
+      margin-top: 110px;
+      position: relative;
+      height: 350px;
+
+      >div {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        @media screen and (max-width:768px) {
+          flex-direction: column;
+
+        }
+      }
+
+      h6 {
+        position: absolute;
+        font-size: 50px;
+        letter-spacing: 20px;
+      }
+
+      .green {
+        color: #B0B864;
+      }
+
+      .droite {
+        right: 25px;
+        z-index: 2;
+        top: 0;
+      }
+
+      .gauche {
+        left: 5vw;
+        z-index: 999;
+        top: 0;
+      }
+
+      .blue {
+        color: #337F9D;
+      }
+
+      .beige {
+        color: #D8B9AC;
+      }
+
+      .conteneur-img {
+        width: 50%;
+        position: relative;
+        border-radius: 25px;
+      }
+
+      .img1 {
+        background-image: url(/images/Rectangle\ 57.png);
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+      }
+
+      .img2 {
+        background: url(/images/Rectangle\ 58.png);
+        background-position: center top;
+        background-size: cover;
+        border-radius: 20px;
+      }
+
+      .img3 {
+        background: url(/images/Rectangle\ 59.png);
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+      }
+
+      .text {
+        width: 50%;
+        padding-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Nueu Plak";
+
+        >div {
+          width: 70%;
+          p:last-child{
+            margin-top: 20px;
+          }
+        }
+      }
+
+
+    }
+  }
+}
