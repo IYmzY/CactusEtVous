@@ -1,47 +1,22 @@
-// import police title (SF Display)
+// import police title (Retroica)
 @font-face {
-  font-family: "SF Display";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Display-Light.otf);
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Display-Regular.otf);
+  font-family: "Retroica";
+  src: url(/fonts/Retroica/Retroica.ttf);
   font-weight: 400;
   font-style: normal;
 }
 
+// Import police title (Neue Plak)
 @font-face {
-  font-family: "SF Display";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Display-Bold.otf);
-  font-weight: 700;
-  font-style: normal;
-}
-
-// Import police title (SF Text)
-@font-face {
-  font-family: "SF Text";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Text-Light.otf);
-  font-weight: 100;
-  font-style: normal;
-}
-@font-face {
-  font-family: "SF Text";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Text-Regular.otf);
+  font-family: "Neue Plak";
+  src: url(/fonts/Neue\ Plak/NeuePlakRegular.ttf);
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "SF Text";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Text-Semibold.otf);
-  font-weight: 600;
+  font-family: "Neue Plak";
+  src: url(/fonts/Neue\ Plak/NeuePlakBold.ttf);
+  font-weight: 800;
   font-style: normal;
 }
-@font-face {
-  font-family: "SF Text";
-  src: url(https://adoublesens.s3.eu-west-3.amazonaws.com/fonts/SF-Pro-Text-Bold.otf);
-  font-weight: 700;
-  font-style: normal;
-}
+
