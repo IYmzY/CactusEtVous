@@ -664,3 +664,8 @@ main {
     }
   }
 }
+
+// axeptio
+#axeptio_main_button > div > div > svg > path:nth-child(1), #normal-switch > div:nth-child(1) > div > svg > path {
+  fill: #093A3A !important;
+}
