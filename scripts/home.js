@@ -23,14 +23,17 @@ window.onload = function () {
     let sticky = nav.offsetHeight
 
     var formNewsletter = document.getElementById('mc-embedded-subscribe-form');
-    formNewsletter.addEventListener('submit', function (event) {
-        var result = document.getElementById('result_news');
-        result.style.display = 'block';
-        formNewsletter.style.display = 'none';
-        result.innerHTML = '<strong>Success!</strong> Merci pour votre inscription.';
-
+    if (formNewsletter != null) {
+        formNewsletter.addEventListener('submit', function (event) {
+            var result = document.getElementById('result_news');
+            result.style.display = 'block';
+            formNewsletter.style.display = 'none';
+            result.innerHTML = '<strong>Success!</strong> Merci pour votre inscription.';
+    
+        }
+        );
     }
-    );
+    
 
     window.onscroll = () => {
 
@@ -70,16 +73,23 @@ window.onload = function () {
     }
 }
 
-cross.addEventListener('click', () => {
-    if (modalForm.style.display = "flex") {
-        modalForm.style.display = "none"
-    }
-})
+if (cross != null) {
+    cross.addEventListener('click', () => {
+        if (modalForm.style.display = "flex") {
+            modalForm.style.display = "none"
+        }
+    })
+}
 
-btnEnquete.addEventListener('click', () => {
-    if (modalForm.style.display = "none") {
-        modalForm.style.display = "flex"
-    }
-})
+if (cross != null) {
+    btnEnquete.addEventListener('click', () => {
+        if (modalForm.style.display = "none") {
+            modalForm.style.display = "flex"
+        }
+    })
+}   
+    
+
+
 
 
