@@ -4,6 +4,7 @@ body {
   font-family: "Neue Plak", sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: #F9F9F9;
 
   h1,
   h2,
@@ -11,7 +12,7 @@ body {
   h4,
   h5,
   h6 {
-    font-family: "Retroica", sans-serif;
+    font-family: "copacanaba", sans-serif;
   }
 
   h1 {
@@ -38,11 +39,32 @@ body {
   a {
     color: #54d077;
     text-decoration: none;
-
-    &:hover {
+    position: relative;
+    &:not(.btn):hover {
       text-decoration: none;
+      &:after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        // width: 20px;
+        background-color: #00750a;
+        z-index: -1;
+        animation: slide 0.5s ease forwards ;
+      }
     }
   }
+
+  @keyframes slide{
+    0%{
+      width: 10px;
+    }
+    100%{
+      width: 50px;
+    }
+  }
+  
   main section:not(section.background),header,footer > div{
     max-width: 1300px;
     margin: 0 auto;
@@ -57,7 +79,6 @@ body {
     padding: 10px 20px;
     border-radius: 10px;
     color: #fff;
-    font-size: 15px;
     font-weight: 800;
     &:hover{
       background-color: #0e5656;
@@ -95,6 +116,7 @@ header{
       a{
         color: #fff;
         font-weight: 800;
+        text-transform: uppercase;
       }
     }
   }
@@ -152,7 +174,7 @@ header{
 main{
   section.background{
     height: 1210px;
-    background-image:  linear-gradient(to bottom, #093a3a35, #093a3a41), url(/images/headerBackground.png);
+    background-image:  linear-gradient(to bottom, #041b1b2a, #041b1b2f), url(/images/headerBackground.png);
     background-size: cover;
     background-position: center;
    
@@ -165,7 +187,7 @@ main{
         position: absolute;
         top: 60%;
         left: 0%;
-        background-color: rgba(223, 223, 223, 0.248);
+        background-color: rgba(0, 0, 0, 0.248);
         backdrop-filter: blur(1px);
         width: 250px;
         padding: 20px;
@@ -194,7 +216,6 @@ main{
         transform: translate(-50%,-50%);
         width: 1210px;
         h1,h2{
-          font-family: "Retroica", sans-serif;
           font-weight: 700;
           font-size: 96px;
           color: #fff;
@@ -614,6 +635,7 @@ main {
         }
 
         p{
+          line-height: 27px;
           span{
             border: none;
           }
@@ -622,7 +644,7 @@ main {
 
         >div {
           width: 70%;
-          margin-top: 70px;
+          margin-top: 60px;
 
           p:last-child {
             margin-top: 20px;
@@ -663,4 +685,13 @@ main {
       border-bottom: none;
     }
   }
+}
+
+// axeptio
+.Icon__IconStyle-sc-1jpid70-1 > svg:nth-child(1) > path:nth-child(2){
+  fill: #fff !important;
+}
+
+.Icon__IconStyle-sc-1jpid70-1 > svg:nth-child(1) > path:nth-child(1){
+  fill: #093A3A !important;
 }
