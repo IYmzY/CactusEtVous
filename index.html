@@ -52,7 +52,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNBXLDC" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header>
+    <!-- <header>
         <div class="logo">
             <img src="./images/logo.svg" alt="Logo Escapee" />
         </div>
@@ -66,11 +66,8 @@
         <div class="burger">
             <img class="open-navbar" src="/images/menubuger.svg" alt="burger menu">
         </div>
-    </header>
-
-    <main>
-
-        <!-- <div id="mc_embed_signup">
+    </header> -->
+    <!-- <div id="mc_embed_signup">
                                 <p id="result_news" style="display: none;"></p>
                                 <form
                                     action="https://Escapee.us9.list-manage.com/subscribe/post?u=8e71f96c5c933f5329444df27&amp;id=3ad5a89f21"
@@ -90,9 +87,41 @@
                                     </form>
                                 </div>
                             </div> -->
+    <div id="login">
+        <div class="header">
+            <h1>Authentification</h1>
+        </div>
+        <form>
+            <div class="group">
+                <input id="txtEmail" type="email">
+                <label>Email</label>
+            </div>
+            <div class="group">
+                <input id="txtPassword" type="password">
+                <label>Password</label>
+            </div>
+            <div id="divLoginError" class="group">
+                <div id="lblLoginErrorMessage" class="errorlabel">Error message</div>
+            </div>
+            <button id="btnLogin" type="button" class="button buttonBlue">Log in</button>
+            <button id="btnSignup" type="button" class="button buttonBlue">Sign up</button>
+        </form>
+    </div>
 
-    </main>
-    <footer>
+    <div id="app">
+        <div class="header">
+            <h1>Welcome to Your Amazing App</h1>
+        </div>
+        <form>
+            <div class="group">
+                <div id="lblAuthState" class="authlabel"></div>
+            </div>
+            <button id="btnLogout" type="button" class="button buttonBlue">Log out</button>
+        </form>
+    </div>
+
+
+    <!-- <footer>
         <div>
             <ul>
                 <li><a href="#">Accueil</a></li>
@@ -115,7 +144,7 @@
                 </p>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
     <script type='text/javascript'>
         (function ($) {
@@ -136,6 +165,8 @@
         }(jQuery));
         var $mcj = jQuery.noConflict(true);
     </script> -->
+    <script type="module" src="./scripts/firebaseConfig.js"></script>
+    <script type="module" src="./scripts/firebaseAuth.js"></script>
     <script type="module" src="./scripts/main.js"></script>
     <script type="module" src="./scripts/home.js"></script>
     <script>

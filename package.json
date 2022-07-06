@@ -10,5 +10,8 @@
   "devDependencies": {
     "sass": "^1.52.3",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "firebase": "^9.8.4"
   }
 }
