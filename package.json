@@ -12,6 +12,10 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.25.0",
+    "@editorjs/embed": "^2.5.2",
+    "@editorjs/header": "^2.6.2",
+    "@editorjs/image": "^2.6.2",
     "firebase": "^9.8.4"
   }
 }
