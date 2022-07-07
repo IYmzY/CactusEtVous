@@ -1,5 +1,7 @@
+import '../styles/reset.css'
 import '../styles/connect.scss'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore";
 import {
     hideLoginError,
     showLoginState,
@@ -15,6 +17,7 @@ import { app } from "./firebaseConfig"
 
 // Authentification 
 const auth = getAuth(app)
+const db = getFirestore(app);
 
 // login function firebase auth
 const loginEmailPassword = async () => {
@@ -24,7 +27,7 @@ const loginEmailPassword = async () => {
     try {
         await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     } catch (error) {
-        console.log(`Une erreur c'est produite, HAHA t'es la reine des salope de l'authentification ${error}`)
+        console.log(`Une erreur s'est produite lors de ta tentive de connexion : ${error}`)
         showLoginError(error)
     }
 }
@@ -32,11 +35,27 @@ const loginEmailPassword = async () => {
 const createAccount = async () => {
     const Email = txtEmail.value
     const Password = txtPassword.value
+    const FirstName = txtFirstName.value
+    const LastName = txtLasttName.value
+    const PhoneNumber = txtPhoneNumber.value
+
     try {
-        await createUserWithEmailAndPassword(auth, Email, Password)
+        createUserWithEmailAndPassword(auth, Email, Password).then(userCredential => {
+            return addDoc(collection(db, "users"), {
+                firstName: FirstName,
+                lastName: LastName,
+                phoneNumber: PhoneNumber,
+            })
+            // return db.collection('users').doc(userCredential.user.uid).set({
+            //     firstName: FirstName,
+            //     lastName: LastName,
+            //     phoneNumber: PhoneNumber
+
+            // })
+        })
     }
     catch (error) {
-        console.log(`Une erreur c'est produite, HAHA t'es la reine des salope de l'inscription ${error}`)
+        console.log(`Une erreur s'est produite lors de ta tentive d'inscription :${error}`)
     }
 }
 

@@ -28,8 +28,8 @@ h3 {
 
 form {
   width: 380px;
-  margin: 4em auto;
-  padding: 3em 2em 2em 2em;
+  margin: 2rem auto;
+  padding: 3rem 2rem 2rem 2rem;
   background: #fafafa;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px,
@@ -278,4 +278,11 @@ footer img:hover {
 footer img:focus,
 footer a:focus {
   outline: none;
+}
+
+.signIn-signUp-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
