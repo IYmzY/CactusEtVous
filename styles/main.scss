@@ -37,22 +37,23 @@ body {
   }
 
   a {
-    color: #54d077;
+    color: #000000;
     text-decoration: none;
     position: relative;
     &:not(.btn):hover {
       text-decoration: none;
-      &:after{
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 5px;
-        // width: 20px;
-        background-color: #00750a;
-        z-index: -1;
-        animation: slide 0.5s ease forwards ;
-      }
+      color: #337F9D;
+      // &:after{
+      //   content: "";
+      //   position: absolute;
+      //   bottom: 0;
+      //   left: 0;
+      //   height: 5px;
+      //   // width: 20px;
+      //   background-color: #00750a;
+      //   z-index: -1;
+      //   animation: slide 0.5s ease forwards ;
+      // }
     }
   }
 
@@ -694,4 +695,18 @@ main {
 
 .Icon__IconStyle-sc-1jpid70-1 > svg:nth-child(1) > path:nth-child(1){
   fill: #093A3A !important;
+}
+
+//test encadrée
+
+#display-image{
+  width: 400px;
+  height: 225px;
+  border: 1px solid black;
+  background-position: center;
+  background-size: cover;
+}
+
+article[class*="article_"] img {
+  width:100px;
 }
