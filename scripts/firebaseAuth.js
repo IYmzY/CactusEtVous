@@ -1,7 +1,7 @@
 import '../styles/reset.css'
 import '../styles/connect.scss'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import {
     hideLoginError,
     showLoginState,
@@ -31,28 +31,23 @@ const loginEmailPassword = async () => {
         showLoginError(error)
     }
 }
-// create Account function firebase auth
+// create Account function firebase auth & add user to db collection
 const createAccount = async () => {
-    const Email = txtEmail.value
-    const Password = txtPassword.value
-    const FirstName = txtFirstName.value
-    const LastName = txtLasttName.value
-    const PhoneNumber = txtPhoneNumber.value
+    const Email = txtEmailSignUp.value
+    const Password = txtPasswordSignUp.value
 
     try {
-        createUserWithEmailAndPassword(auth, Email, Password).then(userCredential => {
-            return addDoc(collection(db, "users"), {
-                firstName: FirstName,
-                lastName: LastName,
-                phoneNumber: PhoneNumber,
-            })
-            // return db.collection('users').doc(userCredential.user.uid).set({
-            //     firstName: FirstName,
-            //     lastName: LastName,
-            //     phoneNumber: PhoneNumber
+        createUserWithEmailAndPassword(auth, Email, Password)
+            .then(userCredential => {
+                const userID = userCredential.user.uid;
+                try {
+                    addUserToDB(userID);
+                }
+                catch (error) {
+                    console.log(`Une erreur s'est produite lors de ta tentive d'inscription :${error}`)
+                }
 
-            // })
-        })
+            })
     }
     catch (error) {
         console.log(`Une erreur s'est produite lors de ta tentive d'inscription :${error}`)
@@ -73,6 +68,19 @@ const monitorAuthState = async () => {
             lblAuthState.innerHTML = `You're not logged in.`
         }
     })
+}
+
+// add user to DB
+const addUserToDB = async (userID) => {
+    const FirstName = txtFirstName.value
+    const LastName = txtLastName.value
+    const PhoneNumber = txtPhoneNumber.value
+    await setDoc(doc(db, "users", userID), {
+        firstName: FirstName,
+        lastName: LastName,
+        phoneNumber: PhoneNumber,
+        admin: false
+    });
 }
 
 // tout est dans le nom, apprend à lire stp
