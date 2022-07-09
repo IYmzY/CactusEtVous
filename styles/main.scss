@@ -32,7 +32,7 @@ body {
     .nav-container {
       display: flex;
       position: relative;
-      width: 30vw;
+      width: 35vw;
       justify-content: space-around;
       font-family: "Neue Plak", sans-serif;
       font-size: 20px;
@@ -41,7 +41,7 @@ body {
       line-height: 36px;
       color: white;
       height: fit-content;
-      margin: 0 5rem 0 0;
+      margin: 1rem 5rem 0 0;
     }
   }
   .filter-background {
@@ -77,12 +77,9 @@ main {
       max-width: 60vw;
       margin-top: 3rem;
       h2 {
-        font-family: "Copacabana", sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 60px;
         line-height: 70px;
-        letter-spacing: 0.5rem;
+        font-size: 60px;
+        letter-spacing: 1rem;
         text-transform: uppercase;
         color: #ffffff;
         margin-bottom: 2rem;
