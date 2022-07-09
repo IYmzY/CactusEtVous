@@ -7,12 +7,12 @@ module.exports = defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                privacypolicy: resolve(__dirname, 'pages/privacy-policy.html'),
-                connect: resolve(__dirname, 'pages/connect.html'),
-                addArticles: resolve(__dirname, 'pages/blog/addArticles.html'),
-                editArticle: resolve(__dirname, 'pages/blog/editArticle.html'),
-                blog : resolve(__dirname, 'pages/blog/blog.html'),
-                article : resolve(__dirname, 'pages/blog/readArticles.html'),
+                connect: resolve(__dirname, 'connect/index.html'),
+                privacyPolicy: resolve(__dirname, 'privacy-policy/index.html'),
+                blog: resolve(__dirname, 'blog/index.html'),
+                addArticles: resolve(__dirname, 'blog/add/index.html'),
+                editArticle: resolve(__dirname, 'blog/edit/index.html'),
+                article: resolve(__dirname, 'blog/article/index.html'),
             }
         }
     }

@@ -6,9 +6,9 @@ import Header from '@editorjs/header';
 import Embed from '@editorjs/embed';
 import ImageTool from '@editorjs/image';
 
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where, orderBy, limit } from "firebase/firestore"; 
-import { getStorage, ref, uploadBytes, getDownloadURL  } from "firebase/storage";
-import {app} from "./firebaseConfig";
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where, orderBy, limit } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { app } from "./firebaseConfig";
 
 const db = getFirestore(app);
 const storage = getStorage(app);
@@ -96,7 +96,7 @@ if (content != null) {
                     // lastEdit: dateTime(),
                     lastEdit: new Date(),
                 }).then((snapshot) => {
-                    window.location.href = "blog.html";
+                    window.location.href = "index.html";
                 }).catch((error) => {
                     console.log(error);
                 });
@@ -132,7 +132,7 @@ if (resultsContents != null) {
             let docs = query(articles, where("categories", "==", page))
             docs = await getDocs(docs);
             docs.forEach((doc) => {
-                if (doc.data().categories == page){
+                if (doc.data().categories == page) {
                     let article = document.createElement('div');
                     article.classList.add('card');
                     article.innerHTML = `
@@ -141,7 +141,7 @@ if (resultsContents != null) {
                         <div class="card-content">
                             <h3>${doc.data().title}</h3>
                             <p>${doc.data().synopsis}</p>
-                            <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                            <a href="./article/index.html?id=${doc.id}">Lire l'article</a>
                         </div>
                     `;
                     resultsContents.appendChild(article);
@@ -149,8 +149,8 @@ if (resultsContents != null) {
             }
 
             );
-        
-        }else{
+
+        } else {
 
             let docs = query(articles, orderBy("lastEdit", "desc"))
             docs = await getDocs(docs);
@@ -163,26 +163,26 @@ if (resultsContents != null) {
                     <div class="card-content">
                         <h3>${doc.data().title}</h3>
                         <p>${doc.data().synopsis}</p>
-                        <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                        <a href="./article/index.html?id=${doc.id}">Lire l'article</a>
                     </div>
                 `;
                 resultsContents.appendChild(article);
-                }
+            }
             );
         }
 
         let lastArticles = document.querySelector('.last-articles');
-        let lastArticle = document.querySelector('#last-article'); 
+        let lastArticle = document.querySelector('#last-article');
         let dateNow = new Date();
         let docsLastArticles = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(4));
-        docsLastArticles  = await getDocs(docsLastArticles);
+        docsLastArticles = await getDocs(docsLastArticles);
         console.log(docsLastArticles);
         let docLastArticle = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(1));
-        docLastArticle  = await getDocs(docLastArticle);
+        docLastArticle = await getDocs(docLastArticle);
         let count = 0;
 
         docsLastArticles.forEach((doc) => {
-            console.log(1,doc)
+            console.log(1, doc)
             let article = document.createElement('div');
             article.classList.add('card');
             article.innerHTML = `
@@ -191,7 +191,7 @@ if (resultsContents != null) {
                 <div class="card-content">
                     <h3>${doc.data().title}</h3>
                     <p>${doc.data().synopsis}</p>
-                    <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                    <a href="./article/index.html?id=${doc.id}">Lire l'article</a>
                 </div>
             `;
             lastArticles.appendChild(article);
@@ -204,12 +204,12 @@ if (resultsContents != null) {
                     <h4>Notre dernier article</h4>
                     <h3>${doc.data().title}</h3>
                     <p>${doc.data().synopsis}</p>
-                    <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                    <a href="./article/index.html?id=${doc.id}">Lire l'article</a>
                 </div>
             `;
         })
 
-       
+
 
     }
     docs();
@@ -227,7 +227,7 @@ if (articleDiv != null) {
 
         await getDoc(articleDataRef).then((doc) => {
 
-            let data  = doc.data();
+            let data = doc.data();
             let title = articleDiv.querySelector('h1');
             title.innerHTML = data.title;
             editorWrite = new EditorJS({
@@ -255,7 +255,7 @@ if (articleDiv != null) {
                 readOnly: true,
             });
             article.style.backgroundImage = `linear-gradient(to bottom,rgba(4,27,27,.40),rgba(4,27,27,.40)), url('${data.url_picture}')`;
-            let href = "editArticle.html?id=" + id;
+            let href = "./edit/index.html?id=" + id;
             let lien = articleDiv.querySelector('#article a');
             lien.href = href;
         }).catch((error) => {
@@ -341,7 +341,7 @@ if (editArticle != null) {
         }
 
         document.querySelector("#display-image").style.backgroundImage = `url(${data.url_picture})`;
-        
+
         const editBtn = document.querySelector('#edit-button');
         editBtn.addEventListener('click', () => {
             editorWrite.save().then(async (outputData) => {
@@ -371,9 +371,9 @@ if (editArticle != null) {
                     synopsis: synopsis,
                     url_picture: fileUrl,
                     categories: cat,
-                    lastEdit : new Date(),
+                    lastEdit: new Date(),
                 }).then((snapshot) => {
-                    window.location.href = "blog.html";
+                    window.location.href = "index.html";
                 }).catch((error) => {
                     console.log(error);
                 });

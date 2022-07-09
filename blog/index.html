@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,21 @@
     <link rel="icon" type="image/png" href="../../public/favicon.ico" />
     <link rel="icon" type="image/png" href="../../public/apple-touch-icon.png" />
 </head>
+
 <body>
+    <header class="header-container">
+        <div class="filter-background"></div>
+        <h1 class="logo-container">
+            <img class="logo" src="../images/logo/logo.svg">
+        </h1>
+        <nav>
+            <ul class="nav-container">
+                <li><a href="../">Home</a></li>
+                <li><a href="">Créer votre expérience</a></li>
+                <li class="profil"><a href="">profil</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <!-- Dernier article -->
         <section id="last-article">
@@ -23,7 +38,8 @@
             <article>
                 <div>
                     <h2>Les derniers articles</h2>
-                    <p>Retrouvez ici, les derniers articles que nous mettons en avant, et découvrez de nouvelles destinations, de nouvelles expériences et histoires autour de nos différents voyages.</p>
+                    <p>Retrouvez ici, les derniers articles que nous mettons en avant, et découvrez de nouvelles
+                        destinations, de nouvelles expériences et histoires autour de nos différents voyages.</p>
                 </div>
             </article>
             <div class="last-articles">
@@ -35,19 +51,19 @@
             <article>
                 <div>
                     <h2>Tous les articles</h2>
-                    <a class="btn" href="addArticles.html">Ajouter</a>
+                    <a class="btn" href="./add/index.html">Ajouter</a>
                 </div>
                 <div id="categories" class="categories">
                     <div>
                         <h2>Filtre</h2>
                         <ul>
-                            <li><a href="blog.html">Tous</a> </li>
+                            <li><a href="index.html">Tous</a> </li>
                             <li><a href="?category=1">Se ressourcer</a></li>
                             <li><a href="?category=2">En solitaire</a></li>
                             <li><a href="?category=3">En france</a></li>
                         </ul>
                     </div>
-                    
+
                 </div>
             </article>
             <!-- Articles -->
@@ -56,9 +72,10 @@
             </article>
         </section>
 
-        
+
     </main>
     <script type="module" src="../../scripts/firebaseConfig.js"></script>
     <script type="module" src="../../scripts/blog.js"></script>
 </body>
+
 </html>
