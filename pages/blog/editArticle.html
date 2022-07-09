@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditer un Article</title>
+    <link rel="icon" type="image/png" href="../../public/icon-16x16.png" />
+    <link rel="icon" type="image/png" href="../../public/icon-32x32.png" />
+    <link rel="icon" type="image/png" href="../../public/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" href="../../public/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" href="../../public/favicon.ico" />
+    <link rel="icon" type="image/png" href="../../public/apple-touch-icon.png" />
+</head>
+<body>
+    <main>
+        <div id="edit">
+            <input id="title-article" type="text" alt="Name Article">
+            <textarea id="synopsis-article" type="text" alt="Content Article"></textarea>
+            <div id="edit-content"></div>
+            <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+            <div id="display-image"></div>
+            <select name="categories" id="cat-article">
+                <option value="">Choisir une catégorie</option>
+                <option value="1">Se ressourcer</option>
+                <option value="2">En solitaire</option>
+                <option value="3">En france</option>
+            </select>
+            <button id="edit-button">Modifier</button>
+        </div>
+    </main>
+    <script type="module" src="../../scripts/firebaseConfig.js"></script>
+    <script type="module" src="../../scripts/blog.js"></script>
+    <script type="module" src="../../scripts/main.js"></script>
+    <script type="module" src="../../scripts/home.js"></script>
+</body>
+</html>

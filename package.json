@@ -16,6 +16,7 @@
     "@editorjs/embed": "^2.5.2",
     "@editorjs/header": "^2.6.2",
     "@editorjs/image": "^2.6.2",
+    "crypto-js": "^4.1.1",
     "firebase": "^9.8.4"
   }
 }
