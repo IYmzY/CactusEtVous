@@ -1,5 +1,5 @@
 import '../styles/reset.css'
-import '../styles/fonts.scss'
+import '../styles/global.scss'
 import '../styles/blog.scss'
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
@@ -36,10 +36,6 @@ if (content != null) {
             image: {
                 class: ImageTool,
                 config: {
-                    // endpoints: {
-                    //     byFile: ',
-                    //     byUrl: 'https://api.imgur.com/3/image/url',
-                    // },
                     uploader: {
                         uploadByFile(file) {
                             let fileName = renameImg(file.name);
@@ -243,7 +239,7 @@ if (articleDiv != null) {
                 readOnly: true,
             });
             article.style.backgroundImage = `linear-gradient(to bottom,rgba(4,27,27,.40),rgba(4,27,27,.40)), url('${data.url_picture}')`;
-            let href = "./edit/index.html?id=" + id;
+            let href = "../edit/index.html?id=" + id;
             let lien = articleDiv.querySelector('#article a');
             lien.href = href;
         }).catch((error) => {
