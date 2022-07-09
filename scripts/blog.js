@@ -69,9 +69,7 @@ if (content != null) {
             editorSave.save().then(async (outputData) => {
                 let title = document.getElementById('title-article').value;
                 let synopsis = document.getElementById('synopsis-article').value;
-
                 let file = document.getElementById('image-input').files[0];
-                console.log(file);
                 let fileName = file.name;
                 fileName = renameImg(fileName);
 
@@ -132,26 +130,24 @@ if (resultsContents != null) {
             let docs = query(articles, where("categories", "==", page))
             docs = await getDocs(docs);
             docs.forEach((doc) => {
-                if (doc.data().categories == page){
-                    let article = document.createElement('div');
-                    article.classList.add('card');
-                    article.innerHTML = `
-                        <div class="card-image" style="background-image:url('${doc.data().url_picture}');">
-                        </div>
-                        <div class="card-content">
-                            <h3>${doc.data().title}</h3>
-                            <p>${doc.data().synopsis}</p>
-                            <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
-                        </div>
-                    `;
-                    resultsContents.appendChild(article);
+                    if (doc.data().categories == page){
+                        let article = document.createElement('div');
+                        article.classList.add('card');
+                        article.innerHTML = `
+                            <div class="card-image" style="background-image:url('${doc.data().url_picture}');">
+                            </div>
+                            <div class="card-content">
+                                <h3>${doc.data().title}</h3>
+                                <p>${doc.data().synopsis}</p>
+                                <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                            </div>
+                        `;
+                        resultsContents.appendChild(article);
+                    }
                 }
-            }
-
             );
         
         }else{
-
             let docs = query(articles, orderBy("lastEdit", "desc"))
             docs = await getDocs(docs);
             docs.forEach((doc) => {
@@ -176,13 +172,10 @@ if (resultsContents != null) {
         let dateNow = new Date();
         let docsLastArticles = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(4));
         docsLastArticles  = await getDocs(docsLastArticles);
-        console.log(docsLastArticles);
         let docLastArticle = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(1));
         docLastArticle  = await getDocs(docLastArticle);
-        let count = 0;
 
         docsLastArticles.forEach((doc) => {
-            console.log(1,doc)
             let article = document.createElement('div');
             article.classList.add('card');
             article.innerHTML = `
@@ -208,9 +201,6 @@ if (resultsContents != null) {
                 </div>
             `;
         })
-
-       
-
     }
     docs();
 }
@@ -223,14 +213,12 @@ if (articleDiv != null) {
         let article = document.querySelector('#article > section:first-child');
         var id = url.searchParams.get("id");
         let articleDataRef = doc(db, "articles", id);
-        let editorWrite;
 
-        await getDoc(articleDataRef).then((doc) => {
-
+        let docs = await getDoc(articleDataRef).then((doc) => {
             let data  = doc.data();
             let title = articleDiv.querySelector('h1');
             title.innerHTML = data.title;
-            editorWrite = new EditorJS({
+            let editorWrite = new EditorJS({
                 holderId: 'content-article',
                 tools: {
                     header: {
@@ -268,123 +256,128 @@ if (articleDiv != null) {
 // edtition des articles
 const editArticle = document.querySelector('#edit');
 if (editArticle != null) {
-    var url = new URL(window.location.href);
-    var id = url.searchParams.get("id");
-    let articleDataRef = doc(db, "articles", id);
-    let editorWrite;
+    async function edit() {
 
-    await getDoc(articleDataRef).then((doc) => {
-        let data = doc.data();
-        let title = editArticle.querySelector('#title-article');
-        title.value = data.title;
-        let synopsis = editArticle.querySelector('#synopsis-article');
-        synopsis.value = data.synopsis;
-        let cat = editArticle.querySelector('#cat-article');
-        cat.value = data.categories;
+        var url = new URL(window.location.href);
+        var id = url.searchParams.get("id");
+        let articleDataRef = doc(db, "articles", id);
+        let editorWrite;
 
-        editorWrite = new EditorJS({
-            holderId: 'edit-content',
-            tools: {
-                header: {
-                    class: Header,
-                    inlineToolbar: ['link'],
-                },
-                embed: {
-                    class: Embed,
-                    inlineToolbar: false,
-                    config: {
-                        services: {
-                            youtube: true,
-                            coub: true,
-                        }
-                    }
-                },
-                image: {
-                    class: ImageTool,
-                    config: {
-                        uploader: {
-                            uploadByFile(file) {
-                                let fileName = renameImg(file.name);
-                                let storageRef = ref(storage, fileName);
-                                return uploadBytes(storageRef, file).then(async (snapshot) => {
-                                    let url = await getDownloadURL(storageRef).then((url) => {
-                                        return url;
-                                    }).catch((error) => {
-                                        console.log(error);
-                                    });
-                                    return {
-                                        success: 1,
-                                        file: {
-                                            url: url,
-                                        }
-                                    }
-                                });
+        let edit = await getDoc(articleDataRef).then((doc) => {
+            let data = doc.data();
+            let title = editArticle.querySelector('#title-article');
+            title.value = data.title;
+            let synopsis = editArticle.querySelector('#synopsis-article');
+            synopsis.value = data.synopsis;
+            let cat = editArticle.querySelector('#cat-article');
+            cat.value = data.categories;
+
+            editorWrite = new EditorJS({
+                holderId: 'edit-content',
+                tools: {
+                    header: {
+                        class: Header,
+                        inlineToolbar: ['link'],
+                    },
+                    embed: {
+                        class: Embed,
+                        inlineToolbar: false,
+                        config: {
+                            services: {
+                                youtube: true,
+                                coub: true,
                             }
                         }
-                    }
+                    },
+                    image: {
+                        class: ImageTool,
+                        config: {
+                            uploader: {
+                                uploadByFile(file) {
+                                    let fileName = renameImg(file.name);
+                                    let storageRef = ref(storage, fileName);
+                                    return uploadBytes(storageRef, file).then(async (snapshot) => {
+                                        let url = await getDownloadURL(storageRef).then((url) => {
+                                            return url;
+                                        }).catch((error) => {
+                                            console.log(error);
+                                        });
+                                        return {
+                                            success: 1,
+                                            file: {
+                                                url: url,
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    },
                 },
-            },
-            data: data.content,
-        });
-
-        const image_input = document.querySelector("#image-input");
-        if (image_input != undefined) {
-            image_input.addEventListener("change", function () {
-                const reader = new FileReader();
-                reader.addEventListener("load", () => {
-                    const uploaded_image = reader.result;
-                    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
-                });
-                reader.readAsDataURL(this.files[0]);
-
+                data: data.content,
             });
-        }
 
-        document.querySelector("#display-image").style.backgroundImage = `url(${data.url_picture})`;
-        
-        const editBtn = document.querySelector('#edit-button');
-        editBtn.addEventListener('click', () => {
-            editorWrite.save().then(async (outputData) => {
-                let title = document.getElementById('title-article').value;
-                let synopsis = document.getElementById('synopsis-article').value;
-                let cat = document.getElementById('cat-article').value;
-
-                let file = document.getElementById('image-input').files[0];
-                let fileUrl = data.url_picture;
-                if (file != null) {
-                    let fileName = file.name;
-                    fileName = renameImg(fileName);
-                    let fileRef = ref(storage, fileName);
-                    fileUrl = await uploadBytes(fileRef, file).then(async (snapshot) => {
-                        let url = await getDownloadURL(fileRef).then((url) => {
-                            return url;
-                        }).catch((error) => {
-                            console.log(error);
-                        });
-                        return url;
+            const image_input = document.querySelector("#image-input");
+            if (image_input != undefined) {
+                image_input.addEventListener("change", function () {
+                    const reader = new FileReader();
+                    reader.addEventListener("load", () => {
+                        const uploaded_image = reader.result;
+                        document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
                     });
-                }
+                    reader.readAsDataURL(this.files[0]);
 
-                await setDoc(articleDataRef, {
-                    title: title,
-                    content: outputData,
-                    synopsis: synopsis,
-                    url_picture: fileUrl,
-                    categories: cat,
-                    lastEdit : new Date(),
-                }).then((snapshot) => {
-                    window.location.href = "blog.html";
-                }).catch((error) => {
-                    console.log(error);
                 });
+            }
 
-            }).catch((error) => {
-                console.log('Saving failed: ', error);
+            document.querySelector("#display-image").style.backgroundImage = `url(${data.url_picture})`;
+            
+            const editBtn = document.querySelector('#edit-button');
+            editBtn.addEventListener('click', () => {
+                editorWrite.save().then(async (outputData) => {
+                    let title = document.getElementById('title-article').value;
+                    let synopsis = document.getElementById('synopsis-article').value;
+                    let cat = document.getElementById('cat-article').value;
+
+                    let file = document.getElementById('image-input').files[0];
+                    let fileUrl = data.url_picture;
+                    if (file != null) {
+                        let fileName = file.name;
+                        fileName = renameImg(fileName);
+                        let fileRef = ref(storage, fileName);
+                        fileUrl = await uploadBytes(fileRef, file).then(async (snapshot) => {
+                            let url = await getDownloadURL(fileRef).then((url) => {
+                                return url;
+                            }).catch((error) => {
+                                console.log(error);
+                            });
+                            return url;
+                        });
+                    }
+
+                    await setDoc(articleDataRef, {
+                        title: title,
+                        content: outputData,
+                        synopsis: synopsis,
+                        url_picture: fileUrl,
+                        categories: cat,
+                        lastEdit : new Date(),
+                    }).then((snapshot) => {
+                        window.location.href = "blog.html";
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+
+                }).catch((error) => {
+                    console.log('Saving failed: ', error);
+                });
             });
+        }).catch((error) => {
+            console.log(error);
         });
-    }).catch((error) => {
-        console.log(error);
-    });
+
+    }
+    edit()
 
 }
 
