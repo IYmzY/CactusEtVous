@@ -13,6 +13,7 @@ module.exports = defineConfig({
                 addArticles: resolve(__dirname, 'blog/add/index.html'),
                 editArticle: resolve(__dirname, 'blog/edit/index.html'),
                 article: resolve(__dirname, 'blog/article/index.html'),
+                notFound: resolve(__dirname, 'not-found/index.html'),
             }
         }
     }
