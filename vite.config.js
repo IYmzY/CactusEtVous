@@ -12,7 +12,7 @@ module.exports = defineConfig({
                 addArticles: resolve(__dirname, 'pages/blog/addArticles.html'),
                 editArticle: resolve(__dirname, 'pages/blog/editArticle.html'),
                 blog : resolve(__dirname, 'pages/blog/blog.html'),
-                article : resolve(__dirname, 'pages/blog/readArticle.html'),
+                article : resolve(__dirname, 'pages/blog/readArticles.html'),
             }
         }
     }
