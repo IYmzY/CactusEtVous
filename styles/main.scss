@@ -79,10 +79,12 @@ main {
       h2 {
         line-height: 70px;
         font-size: 60px;
-        letter-spacing: 1rem;
+        font-weight: 400;
         text-transform: uppercase;
         color: #ffffff;
         margin-bottom: 2rem;
+        width: 54vw;
+        letter-spacing: 0.6375rem;
       }
       p {
         max-width: 30vw;
@@ -125,10 +127,11 @@ main {
 
     .we-engage {
       display: flex;
+      position: relative;
       img {
         width: 45vw;
         height: 60vh;
-        object-position: center;
+        object-position: 50% 40%;
         border-radius: 1.5rem;
         object-fit: cover;
         margin: 5rem 0 5rem 5rem;
@@ -136,6 +139,77 @@ main {
       .we-engage-content {
         margin: 5rem;
         width: 40vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        h2 {
+          position: absolute;
+          top: 20vh;
+          left: 40.5vw;
+          width: 54vw;
+          font-family: "Copacabana";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 50px;
+          line-height: 70px;
+          letter-spacing: 0.17em;
+          text-transform: uppercase;
+          color: #093a3a;
+        }
+        p {
+          font-family: "Neue Plak";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+          text-align: justify;
+          color: #000000;
+        }
+        button {
+          background: #093a3a;
+          border-radius: 20px;
+          font-family: "Retroica";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 36px;
+          margin-top: 2rem;
+          width: 14rem;
+          height: 3rem;
+          color: white;
+        }
+      }
+    }
+    .explainer-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        width: 41vw;
+        font-family: "Copacabana";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        color: #093a3a;
+        margin-bottom: 2rem;
+      }
+      .explainer-preview-container {
+        position: relative;
+        .explainer-preview {
+          width: 65vw;
+          height: 65vh;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+        .explainer-preview-play-icon {
+          position: absolute;
+          top: 33%;
+          left: 41%;
+        }
       }
     }
   }
