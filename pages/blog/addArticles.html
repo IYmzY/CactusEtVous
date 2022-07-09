@@ -13,21 +13,31 @@
     <link rel="icon" type="image/png" href="../../public/apple-touch-icon.png" />
 </head>
 <body>
-    <main>
-        <div class="save">
-            <input id="title-article" type="text" alt="Name Article">
-            <textarea id="synopsis-article" type="text" alt="Content Article"></textarea>
-            <div id="content"></div>
-            <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
-            <div id="display-image"></div>
-            <select name="categories" id="cat-article">
-                <option value="">Choisir une catégorie</option>
-                <option value="1">Se ressourcer</option>
-                <option value="2">En solitaire</option>
-                <option value="3">En france</option>
-            </select>
-            <button id="save-button">Save</button>
-        </div>
+    <main id="add-container">
+        <section>
+            <h1>Ajouter un article</h1>
+        </section>
+        <section>
+            <div id="add">
+                <label for="title-article">Titre de l'article</label>
+                <input id="title-article" type="text" alt="Name Article">
+                <label for="synopsis-article">Résumé</label>
+                <textarea id="synopsis-article" type="text" alt="Content Article"></textarea>
+                <label for="image-input">Image d'article</label>
+                <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+                <div id="display-image"></div>
+                <label for="cat-article">Categorie</label>
+                <select name="categories" id="cat-article">
+                    <option value="">Choisir une catégorie</option>
+                    <option value="1">Se ressourcer</option>
+                    <option value="2">En solitaire</option>
+                    <option value="3">En france</option>
+                </select>
+                <label for="content">Contenu</label>
+                <div id="content"></div>
+                <button id="save-button">Ajouter</button>
+            </div>
+        </section>
     </main>
     <script type="module" src="../../scripts/firebaseConfig.js"></script>
     <script type="module" src="../../scripts/blog.js"></script>

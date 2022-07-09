@@ -1,13 +1,14 @@
 import '../styles/reset.css'
 import '../styles/fonts.scss'
+import '../styles/blog.scss'
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import Embed from '@editorjs/embed';
 import ImageTool from '@editorjs/image';
 
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { app } from "./firebaseConfig";
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where, orderBy, limit } from "firebase/firestore"; 
+import { getStorage, ref, uploadBytes, getDownloadURL  } from "firebase/storage";
+import {app} from "./firebaseConfig";
 
 const db = getFirestore(app);
 const storage = getStorage(app);
@@ -92,7 +93,8 @@ if (content != null) {
                     synopsis: synopsis,
                     url_picture: fileUrl,
                     categories: cat,
-                    lastEdit: dateTime(),
+                    // lastEdit: dateTime(),
+                    lastEdit: new Date(),
                 }).then((snapshot) => {
                     window.location.href = "blog.html";
                 }).catch((error) => {
@@ -129,58 +131,86 @@ if (resultsContents != null) {
             page = page.toString();
             let docs = query(articles, where("categories", "==", page))
             docs = await getDocs(docs);
-            let article = document.createElement('article');
-
             docs.forEach((doc) => {
-                if (doc.data().categories == page) {
+                if (doc.data().categories == page){
+                    let article = document.createElement('div');
+                    article.classList.add('card');
                     article.innerHTML = `
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="${doc.data().url_picture}">
+                        <div class="card-image" style="background-image:url('${doc.data().url_picture}');">
                         </div>
                         <div class="card-content">
                             <h3>${doc.data().title}</h3>
                             <p>${doc.data().synopsis}</p>
-                        </div>
-                        <div class="card-action">
                             <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
                         </div>
-                    </div>
                     `;
                     resultsContents.appendChild(article);
                 }
             }
 
             );
+        
+        }else{
 
+            let docs = query(articles, orderBy("lastEdit", "desc"))
+            docs = await getDocs(docs);
+            docs.forEach((doc) => {
+                let article = document.createElement('div');
+                article.classList.add('card');
+                article.innerHTML = `
+                    <div class="card-image" style="background-image:url('${doc.data().url_picture}');">
+                    </div>
+                    <div class="card-content">
+                        <h3>${doc.data().title}</h3>
+                        <p>${doc.data().synopsis}</p>
+                        <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                    </div>
+                `;
+                resultsContents.appendChild(article);
+                }
+            );
         }
 
-        let lastArticles = document.querySelector('.last-articles > div');
-        let dateNow = dateTime();
-        let docs = query(articles, where("lastEdit", "<", dateNow))
-        docs = await getDocs(docs);
+        let lastArticles = document.querySelector('.last-articles');
+        let lastArticle = document.querySelector('#last-article'); 
+        let dateNow = new Date();
+        let docsLastArticles = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(4));
+        docsLastArticles  = await getDocs(docsLastArticles);
+        console.log(docsLastArticles);
+        let docLastArticle = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(1));
+        docLastArticle  = await getDocs(docLastArticle);
         let count = 0;
-        docs.forEach((doc) => {
-            count++;
-            if (count < 4) {
-                if (doc.data().lastEdit < dateNow) {
-                    lastArticles.innerHTML = `
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="${doc.data().url_picture}">
-                        </div>
-                        <div class="card-content">
-                            <h3>${doc.data().title}</h3>
-                            <p>${doc.data().synopsis}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
-                        </div>
-                    </div>
-                    `;
-                }
-            }
+
+        docsLastArticles.forEach((doc) => {
+            console.log(1,doc)
+            let article = document.createElement('div');
+            article.classList.add('card');
+            article.innerHTML = `
+                <div class="card-image" style="background-image:url('${doc.data().url_picture}');">
+                </div>
+                <div class="card-content">
+                    <h3>${doc.data().title}</h3>
+                    <p>${doc.data().synopsis}</p>
+                    <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                </div>
+            `;
+            lastArticles.appendChild(article);
         });
+
+        docLastArticle.forEach((doc) => {
+            lastArticle.style.backgroundImage = `linear-gradient(to bottom,rgba(4,27,27,.70),rgba(4,27,27,.70)), url('${doc.data().url_picture}') `;
+            lastArticle.innerHTML = `
+                <div class="content">
+                    <h4>Notre dernier article</h4>
+                    <h3>${doc.data().title}</h3>
+                    <p>${doc.data().synopsis}</p>
+                    <a href="readArticles.html?id=${doc.id}">Lire l'article</a>
+                </div>
+            `;
+        })
+
+       
+
     }
     docs();
 }
@@ -190,12 +220,14 @@ const articleDiv = document.querySelector('#article');
 if (articleDiv != null) {
     async function article() {
         var url = new URL(window.location.href);
+        let article = document.querySelector('#article > section:first-child');
         var id = url.searchParams.get("id");
         let articleDataRef = doc(db, "articles", id);
         let editorWrite;
 
         await getDoc(articleDataRef).then((doc) => {
-            let data = doc.data();
+
+            let data  = doc.data();
             let title = articleDiv.querySelector('h1');
             title.innerHTML = data.title;
             editorWrite = new EditorJS({
@@ -222,6 +254,7 @@ if (articleDiv != null) {
                 data: data.content,
                 readOnly: true,
             });
+            article.style.backgroundImage = `linear-gradient(to bottom,rgba(4,27,27,.40),rgba(4,27,27,.40)), url('${data.url_picture}')`;
             let href = "editArticle.html?id=" + id;
             let lien = articleDiv.querySelector('#article a');
             lien.href = href;
@@ -306,7 +339,9 @@ if (editArticle != null) {
 
             });
         }
+
         document.querySelector("#display-image").style.backgroundImage = `url(${data.url_picture})`;
+        
         const editBtn = document.querySelector('#edit-button');
         editBtn.addEventListener('click', () => {
             editorWrite.save().then(async (outputData) => {
@@ -336,7 +371,7 @@ if (editArticle != null) {
                     synopsis: synopsis,
                     url_picture: fileUrl,
                     categories: cat,
-                    lastEdit: dateTime(),
+                    lastEdit : new Date(),
                 }).then((snapshot) => {
                     window.location.href = "blog.html";
                 }).catch((error) => {
@@ -376,14 +411,4 @@ function renameImg(title) {
     title = title.join(".");
     return title;
 }
-
-function dateTime() {
-    var ladate = new Date()
-    var date = ladate.getDate() + "/" + (ladate.getMonth() + 1) + "/" + ladate.getFullYear();
-    var hours = ladate.getHours() + ":" + ladate.getMinutes() + ":" + ladate.getSeconds();
-    var dateTime = date + " " + hours;
-    return dateTime;
-}
-
-
 

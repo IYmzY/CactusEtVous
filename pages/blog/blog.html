@@ -14,23 +14,49 @@
 </head>
 <body>
     <main>
-        <h1>Notre blog</h1>
-        <div id="resultsContents"></div>
-        <div class="categories">
-            <h2>Catégories</h2>
-            <ul>
-                <li><a href="?category=1">Se ressourcer</a></li>
-                <li><a href="?category=2">En solitaire</a></li>
-                <li><a href="?category=3">En france</a></li>
-            </ul>
-        </div>
-        <a class="btn" href="addArticles.html">Ajouter</a>
-        <div class="last-articles">
-            <h2>Derniers articles</h2>
-            <div>
-                
+        <!-- Dernier article -->
+        <section id="last-article">
+
+        </section>
+        <!-- les 4 derniers articles -->
+        <section>
+            <article>
+                <div>
+                    <h2>Les derniers articles</h2>
+                    <p>Retrouvez ici, les derniers articles que nous mettons en avant, et découvrez de nouvelles destinations, de nouvelles expériences et histoires autour de nos différents voyages.</p>
+                </div>
+            </article>
+            <div class="last-articles">
             </div>
-        </div>
+        </section>
+        <!-- Articles -->
+        <section>
+            <!-- filter/theme -->
+            <article>
+                <div>
+                    <h2>Tous les articles</h2>
+                    <a class="btn" href="addArticles.html">Ajouter</a>
+                </div>
+                <div id="categories" class="categories">
+                    <div>
+                        <h2>Filtre</h2>
+                        <ul>
+                            <li><a href="blog.html">Tous</a> </li>
+                            <li><a href="?category=1">Se ressourcer</a></li>
+                            <li><a href="?category=2">En solitaire</a></li>
+                            <li><a href="?category=3">En france</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </article>
+            <!-- Articles -->
+            <article>
+                <div id="resultsContents"></div>
+            </article>
+        </section>
+
+        
     </main>
     <script type="module" src="../../scripts/firebaseConfig.js"></script>
     <script type="module" src="../../scripts/blog.js"></script>
