@@ -1,4 +1,5 @@
 import '../styles/reset.css'
+import '../styles/global.scss'
 import '../styles/connect.scss'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
@@ -61,7 +62,7 @@ const monitorAuthState = async () => {
             console.log(user)
             showApp()
             showLoginState(user)
-            hideLoginError()
+           hideLoginError()
         }
         else {
             showLoginForm()

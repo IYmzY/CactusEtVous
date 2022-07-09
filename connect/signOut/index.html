@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification</title>
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="filter-background"></div>
+        <h1 class="logo-container">
+            <img class="logo" src="../../images/logo/logo-b.svg">
+        </h1>
+        <nav>
+            <ul class="nav-container">
+                <li><a href="">Créer votre expérience</a></li>
+                <li><a href="./blog/index.html">le blog</a></li>
+                <li class="profil"><a href="connect/SignIn/index.html">se connecter</a></li>
+                <link rel="stylesheet" href="https://use.typekit.net/zkf2zix.css">
+            </ul>
+        </nav>
+    </header>
+    <main id="register">
+        <section>
+            <article>
+                <div class="signIn-signUp-Container">
+                    <div id="signUp">
+                        <div class="header new">
+                            <h1>Créer un nouveaux compte</h1>
+                            <p>
+                                Déja inscrit ? <a href="../signIn/index.html">Connectez-vous</a>
+                            </p>
+                        </div>
+                        <form>
+                            <div class="group">
+                                <label>Prénom*</label>
+                                <input id="txtFirstName" type="firstname" placeholder="Votre prénom" require>
+                            </div>
+                            <div class="group">
+                                <label>Nom*</label>
+                                <input id="txtLastName" type="lastname" placeholder="Votre nom" require>
+                            </div>
+                            <div class="group">
+                                <label>Email*</label>
+                                <input id="txtEmailSignUp" type="email" placeholder="Votre adresse-mail" required>
+                            </div>
+                            <div class="group">
+                                <label>Mot de passe*</label>
+                                <input id="txtPasswordSignUp" type="password" placeholder="Entrez votre mot de passe" required>
+                                <p class="warn">Doit faire au moint 8 caractères et comporter un chiffre</p>
+                            </div>
+                            <div class="group">
+                                <label>Numéro de téléphone</label>
+                                <input id="txtPhoneNumber" type="tel" placeholder="Votre numéro de téléphone" >
+                            </div>
+                            <button id="btnSignup" type="button" class="button buttonGreen">Créer mon compte</button>
+                        </form>
+                        <div class="new">
+                            <p>
+                                * Champs obligatoires
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                
+            </article>
+        </section>
+    </main>
+    <div id="app">
+        <div class="header">
+            <h1>Welcome to Your Amazing App</h1>
+        </div>
+        <form>
+            <div class="group">
+                <div id="lblAuthState" class="authlabel"></div>
+            </div>
+            <button id="btnLogout" type="button" class="button buttonBlue">Log out</button>
+        </form>
+    </div>
+    <script type="module" src="../../scripts/firebaseConfig.js"></script>
+    <script type="module" src="../../scripts/firebaseAuth.js"></script>
+</body>
+
+</html>
