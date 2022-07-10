@@ -17,6 +17,8 @@
     "@editorjs/header": "^2.6.2",
     "@editorjs/image": "^2.6.2",
     "crypto-js": "^4.1.1",
-    "firebase": "^9.8.4"
+    "firebase": "^9.8.4",
+    "globe.gl": "^2.26.2",
+    "swiper": "^8.3.0"
   }
 }
