@@ -18,8 +18,8 @@ module.exports = defineConfig({
                 editTestimonial: resolve(__dirname, 'testimonials/edit/index.html'),
                 testimonial: resolve(__dirname, 'testimonials/history/index.html'),
                 // connect 
-                connectLogin: resolve(__dirname, 'connect/signIn/index.html'),
-                connectSignUp: resolve(__dirname, 'connect/signOut/index.html'),
+                // connectLogin: resolve(__dirname, 'connect/signIn/index.html'),
+                // connectSignUp: resolve(__dirname, 'connect/signOut/index.html'),
             }
         }
     }
