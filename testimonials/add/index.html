@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un témoignage</title>
+    <link rel="icon" type="image/png" href="../../public/icon-16x16.png" />
+    <link rel="icon" type="image/png" href="../../public/icon-32x32.png" />
+    <link rel="icon" type="image/png" href="../../public/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" href="../../public/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" href="../../public/favicon.ico" />
+    <link rel="icon" type="image/png" href="../../public/apple-touch-icon.png" />
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="filter-background"></div>
+        <h1 class="logo-container">
+            <img class="logo" src="../../images/logo/logo.svg">
+        </h1>
+        <nav>
+            <ul class="nav-container">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="">Créer votre expérience</a></li>
+                <li class="profil"><a href="connect/SignIn/index.html">se connecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="add-container">
+        <section>
+            <h1>Ajouter un témoignage</h1>
+        </section>
+        <section>
+            <div id="add">
+                <label for="title-testimony">Titre de l'histoire</label>
+                <input id="title-testimony" type="text" alt="Name testimony">
+
+                <label for="travels-testimony">Séjours suivie</label>
+                <select name="travels follow" id="travels-testimony">
+
+                </select>
+
+                <label for="image-input">Image de présentation </label>
+                <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+                <div id="display-image"></div>
+
+                <label for="travelers-testimony">Le voyageur</label>
+                <select name="travelers" id="travelers-testimony">
+                </select>
+
+
+                <label for="content-testimony">Contenu</label>
+                <div id="content-testimony"></div>
+
+                <button id="save-button">Ajouter</button>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="../../scripts/firebaseConfig.js"></script>
+    <script type="module" src="../../scripts/testimony.js"></script>
+</body>
+
+</html>

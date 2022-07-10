@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter d'un séjours</title>
+    <link rel="icon" type="image/png" href="../../public/icon-16x16.png" />
+    <link rel="icon" type="image/png" href="../../public/icon-32x32.png" />
+    <link rel="icon" type="image/png" href="../../public/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" href="../../public/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" href="../../public/favicon.ico" />
+    <link rel="icon" type="image/png" href="../../public/apple-touch-icon.png" />
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="filter-background"></div>
+        <h1 class="logo-container">
+            <img class="logo" src="../../images/logo/logo.svg">
+        </h1>
+        <nav>
+            <ul class="nav-container">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="">Créer votre expérience</a></li>
+                <li class="profil"><a href="connect/SignIn/index.html">se connecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="add-container">
+        <section>
+            <h1>Ajouter un séjours</h1>
+        </section>
+        <section>
+            <div id="add">
+                <label for="title-travel">Titre</label>
+                <input id="title-travel" type="text" alt="Name travel">
+
+                <label for="title-travel">Lieux</label>
+                <input id="lieu-travel" type="text" alt="lieu travel">
+
+                <label for="description-travel">Description</label>
+                <textarea id="description-travel" type="text" alt="Description travel"></textarea>
+
+                <label for="content-travel">Contenu</label>
+                <div id="content-travel"></div>
+
+                <label for="image-input">Images</label>
+                <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" multiple="multiple">
+
+                <label for="price-travel">Prix</label>
+                <input id="price-travel" type="number" min="0" max="20000" alt="Price travel">
+
+                <label for="duration-travel">Duration</label>
+                <input id="duration-travel" type="text">
+
+                <label for="activities-travel">Activités</label>
+                <input id="activities-travel" type="text">
+
+                <label for="tags-travel">Tags</label>
+                <input id="tags-travel" type="text">
+
+                <button id="save-button">Ajouter</button>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="../../scripts/firebaseConfig.js"></script>
+    <script type="module" src="../../scripts/travels.js"></script>
+</body>
+
+</html>
