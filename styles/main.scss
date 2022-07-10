@@ -17,6 +17,7 @@ body {
 }
 
 main {
+  background: white;
   .home-container {
     height: 100vh;
     width: 100%;
@@ -24,25 +25,19 @@ main {
     background-position: center;
     background-size: cover;
     background-image: url(/images/imgBackground/home-background.webp);
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 9rem;
+    padding: 0px 7rem;
 
     article {
       max-width: 60vw;
-      margin-top: 3rem;
+      margin-top: 10rem;
 
       h2 {
-        line-height: 70px;
+        width: 55vw;
         font-size: 60px;
-        font-weight: 400;
-        text-transform: uppercase;
-        color: #ffffff;
-        margin-bottom: 2rem;
-        width: 54vw;
-        letter-spacing: 0.6375rem;
+        color: white;
       }
 
       p {
@@ -77,8 +72,10 @@ main {
     height: 183vh;
     width: 100%;
     background-image: linear-gradient(
+        rgba(255, 255, 255, 1),
         rgba(255, 255, 255, 0.9),
-        rgba(255, 255, 255, 0.9)
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 1)
       ),
       url("../images/imgBackground/section-background.webp");
     background-repeat: repeat;
@@ -88,6 +85,7 @@ main {
     .we-engage {
       display: flex;
       position: relative;
+      margin-top: 6rem;
       img {
         width: 45vw;
         height: 60vh;
@@ -108,14 +106,6 @@ main {
           top: 20vh;
           left: 40.5vw;
           width: 54vw;
-          font-family: "Copacabana";
-          font-style: normal;
-          font-weight: 700;
-          font-size: 50px;
-          line-height: 70px;
-          letter-spacing: 0.17em;
-          text-transform: uppercase;
-          color: #093a3a;
         }
         p {
           font-family: "Neue Plak";
@@ -142,21 +132,14 @@ main {
       }
     }
     .explainer-container {
+      margin-top: 6rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       h2 {
         width: 41vw;
-        font-family: "Copacabana";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 50px;
-        line-height: 60px;
-        letter-spacing: 0.17em;
-        text-transform: uppercase;
-        color: #093a3a;
-        margin-bottom: 2rem;
+        text-align: center;
       }
       .explainer-preview-container {
         position: relative;
@@ -174,106 +157,260 @@ main {
       }
     }
   }
-
-  .return {
-    height: 15vh;
-    @media screen and (max-width: 768px) {
-      height: 10vh;
+  .testimony-users-container {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      width: 50vw;
+      text-align: center;
+      margin-bottom: 0;
     }
-    .mobile {
-      display: none;
-      @media screen and (max-width: 768px) {
-        display: flex;
+    article {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 5rem;
+      align-items: center;
+      #testimony-globe {
+        position: relative;
+        .testimony-content-container {
+          width: max-content;
+          max-width: 40vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: absolute;
+          left: 15vw;
+          height: 100vh;
+          top: 0vh;
+          h3 {
+            font-family: "Neue Plak";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 43px;
+            text-transform: uppercase;
+            color: #093a3a;
+            margin-bottom: 1rem;
+          }
+          .testimony-content {
+            position: relative;
+            p {
+              font-family: "Neue Plak";
+              font-style: italic;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 34px;
+              text-align: center;
+              color: #041b1b;
+            }
+            img {
+              position: absolute;
+            }
+            .quote-up {
+              top: 0;
+              left: 0;
+            }
+            .quote-down {
+              bottom: 0;
+              right: 0;
+            }
+          }
+          span {
+            a {
+              font-family: "Neue Plak";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 33px;
+              text-align: center;
+              text-decoration-line: underline;
+              color: #1cc9c9;
+            }
+          }
+        }
       }
-      .logo {
-        width: 60%;
-        display: flex;
-        justify-content: flex-end;
-      }
-      .menu {
-        width: 40%;
-        display: flex;
-        justify-content: flex-end;
-      }
-    }
-    .computer {
-      @media screen and (max-width: 768px) {
-        display: none;
-      }
-    }
-    h3 {
-      font-size: 15px;
     }
   }
-
-  .error {
-    height: 90vh;
-    width: 100%;
+  .statistiques-container {
     display: flex;
-    flex-direction: row;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      height: 90vh;
-    }
-
-    .text {
-      width: 50%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #bcf6f6;
+    height: 30vh;
+    .statistique-content-container {
       display: flex;
       flex-direction: column;
-      padding-left: 150px;
-      @media screen and (max-width: 768px) {
-        width: 100%;
-        height: 40%;
-        padding-left: 0;
-        align-items: center;
-      }
-
-      h1 {
-        color: #106666;
-        font-size: 70px;
-        @media screen and (max-width: 768px) {
-          font-size: 22px;
-        }
-      }
-
-      h4 {
+      align-items: center;
+      span {
+        font-family: "Neue Plak";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 39px;
+        text-align: center;
         color: #041b1b;
-        font-size: 20px;
-        font-family: "Neue Plak", sans-serif;
-        @media screen and (max-width: 768px) {
-          font-weight: normal;
-        }
-      }
-
-      p {
-        line-height: 25px;
-      }
-
-      input {
-        border-radius: 10px;
-        background-color: #093a3a;
-        width: 300px;
-        height: 30px;
-        color: #f9f9f9;
-        margin-top: 100px;
-        cursor: pointer;
-        @media screen and (max-width: 768px) {
-          margin-top: 30px;
-        }
+        margin-top: 1rem;
       }
     }
-
-    .img {
-      width: 50%;
-      background-image: url(/images/imgContainers/Norvège.jpeg);
-      background-size: auto 100%;
-      background-repeat: no-repeat;
-      @media screen and (max-width: 768px) {
-        width: 100%;
-        height: 50%;
-        background-size: 80% 80%;
-        background-position: center;
+  }
+  .blog-news-container {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+    }
+    .gallery {
+      width: 100%;
+      &-cell {
+        width: 40%;
+        margin-right: 10px;
+        &-content {
+          max-width: 500px;
+          margin: 69px auto 0 auto;
+          border: 1px solid blue;
+          text-align: center;
+          &-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            &-container {
+              position: absolute;
+              bottom: -69px;
+              width: 139px;
+              height: 139px;
+              border-radius: 50%;
+              overflow: hidden;
+              justify-content: center;
+              display: flex;
+              align-items: center;
+              border: 8px solid blue;
+              picture {
+                height: 100%;
+                img {
+                  height: 100%;
+                }
+              }
+            }
+          }
+          &-name {
+            margin: 77px 0 1rem 0;
+            line-height: 1.1rem;
+          }
+          &-quote {
+            margin: 0 10% 30px 10%;
+            line-height: 1.1rem;
+          }
+        }
       }
     }
   }
 }
+
+//   .return {
+//     height: 15vh;
+//     @media screen and (max-width: 768px) {
+//       height: 10vh;
+//     }
+//     .mobile {
+//       display: none;
+//       @media screen and (max-width: 768px) {
+//         display: flex;
+//       }
+//       .logo {
+//         width: 60%;
+//         display: flex;
+//         justify-content: flex-end;
+//       }
+//       .menu {
+//         width: 40%;
+//         display: flex;
+//         justify-content: flex-end;
+//       }
+//     }
+//     .computer {
+//       @media screen and (max-width: 768px) {
+//         display: none;
+//       }
+//     }
+//     h3 {
+//       font-size: 15px;
+//     }
+//   }
+
+//   .error {
+//     height: 90vh;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     @media screen and (max-width: 768px) {
+//       flex-direction: column;
+//       height: 90vh;
+//     }
+
+//     .text {
+//       width: 50%;
+//       display: flex;
+//       flex-direction: column;
+//       padding-left: 150px;
+//       @media screen and (max-width: 768px) {
+//         width: 100%;
+//         height: 40%;
+//         padding-left: 0;
+//         align-items: center;
+//       }
+
+//       h1 {
+//         color: #106666;
+//         font-size: 70px;
+//         @media screen and (max-width: 768px) {
+//           font-size: 22px;
+//         }
+//       }
+
+//       h4 {
+//         color: #041b1b;
+//         font-size: 20px;
+//         font-family: "Neue Plak", sans-serif;
+//         @media screen and (max-width: 768px) {
+//           font-weight: normal;
+//         }
+//       }
+
+//       p {
+//         line-height: 25px;
+//       }
+
+//       input {
+//         border-radius: 10px;
+//         background-color: #093a3a;
+//         width: 300px;
+//         height: 30px;
+//         color: #f9f9f9;
+//         margin-top: 100px;
+//         cursor: pointer;
+//         @media screen and (max-width: 768px) {
+//           margin-top: 30px;
+//         }
+//       }
+//     }
+
+//     .img {
+//       width: 50%;
+//       background-image: url(/images/imgContainers/Norvège.jpeg);
+//       background-size: auto 100%;
+//       background-repeat: no-repeat;
+//       @media screen and (max-width: 768px) {
+//         width: 100%;
+//         height: 50%;
+//         background-size: 80% 80%;
+//         background-position: center;
+//       }
+//     }
+//   }
+// }

@@ -94,36 +94,119 @@
                 </div>
             </article>
         </section>
-        <section>
-            <h2>iLS PARLENT DE NOUS</h2>
+        <section class="testimony-users-container">
+            <h2>ils parlent de nous</h2>
             <article>
-                <canvas>
-                    <!--3D globe -->
-                </canvas>
-                <div>
-                    <h3></h3>
-                    <p><span><a href=""></a></span></p>
-                    <div><span></span> <span></span> <span></span> <span></span> <span></span></div>
+                <div id="testimony-globe">
                 </div>
             </article>
         </section>
-        <section>
-            <div><img src="" alt="">
+        <section class="statistiques-container">
+            <div class="statistiques">
+                <img src="./images/icon/person.svg">
                 <span>560 personnes en phase</span>
             </div>
-            <div><img src="" alt="">
+            <div class="statistique-content-container">
+                <img src="./images/icon/lien.svg">
                 <span>325 créateurs de liens</span>
             </div>
-            <div><img src="" alt="">
+            <div class="statistique-content-container">
+                <img src="./images/icon/rencontre.svg">
                 <span>1015 rencontres</span>
             </div>
-            <div><img src="" alt="">
+            <div class="statistique-content-container">
+                <img src="./images/icon/cierge.svg">
                 <span>455 natures découvertes</span>
             </div>
         </section>
-        <section>
+        <section class="blog-news-container">
             <h2>La une du Blog</h2>
             <!--CAROUSEL of articles => blog -->
+            <div class="gallery js-flickity" data-flickity-options='{
+              "wrapAround": true,
+              "prevNextButtons": false,
+              "prevNextButtons": false,
+              "autoPlay": true
+            }'>
+                <div class="gallery-cell">
+                    <div class="gallery-cell-content">
+                        <p class="gallery-cell-content-name">
+                            <strong>Florence B.</strong>
+                            <br />
+                            Head of Impact
+                        </p>
+                        <p class="gallery-cell-content-quote">
+                            Après un début de carrière dans le conseil et l'AMOA projet SI, j'ai choisi de prendre une
+                            direction
+                            différente afin de mettre à profit mes compétences pour lutter contre les changements
+                            climatiques et
+                            préserver la biodiversité
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-cell">
+                    <div class="gallery-cell-content">
+                        <p class="gallery-cell-content-name">
+                            <strong>Bastien J.</strong>
+                            <br />
+                            En reconversion professionnelle
+                        </p>
+                        <p class="gallery-cell-content-quote">
+
+                            J’avais ce qu’on appelle une dissonance cognitive : un écart entre ce que je pense dans ma
+                            tête, ce que
+                            je ressens dans notre cœur et comment j’agis de manière journalière au quotidien
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-cell">
+                    <div class="gallery-cell-content">
+
+                        <p class="gallery-cell-content-name">
+                            <strong>Augustin C.</strong>
+                            <br />
+                            Co-fondateur
+                            Tech for Good
+                        </p>
+                        <p class="gallery-cell-content-quote">
+                            Je rentrais chez moi et j’avais l’impression que j’étais pas vraiment la même personne au
+                            boulot et dans
+                            ma vie personnelle, et ne pas être aligné sur ce que je faisais sur ma journée de
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-cell">
+                    <div class="gallery-cell-content">
+
+                        <p class="gallery-cell-content-name">
+                            <strong>Julien W.</strong>
+                            <br />
+                            Développeur écoresponsable
+                        </p>
+                        <p class="gallery-cell-content-quote">
+                            J’ai totalement remodelé mes missions et mon métier pour être en lien avec mes convictions,
+                            le but,
+                            c’était de donner du sens pour moi, pour mes enfants
+
+                        </p>
+                    </div>
+                </div>
+                <div class="gallery-cell">
+                    <div class="gallery-cell-content">
+                        <p class="gallery-cell-content-name">
+                            <strong>Léopoldine M.</strong>
+                            <br />
+                            Auto-entrepreneur
+                            ESS
+                        </p>
+                        <p class="gallery-cell-content-quote">
+                            Mes valeurs ont pris plus de place et j’ai eu du mal à trouver des offres d’emplois qui
+                            correspondaient
+                            à ce que je recherchais, il n’y avait pas de notion de responsabilité
+                        </p>
+                    </div>
+                </div>
+            </div>
             <button>acceder au blog</button>
         </section>
         <section>
@@ -135,8 +218,6 @@
                         du projets Escapee, recevrez des offres expectionnelles, découvrirez nos nouvelles
                         fonctionnalités en exclusivité, afin
                         de ne jamais rater l’occasion de vous évader.</p>
-
-
 
                     <div id="mc_embed_signup">
                         <p id="result_news" style="display: none;"></p>
@@ -255,7 +336,12 @@
         var $mcj = jQuery.noConflict(true);
     </script>
     <script type="module" src="./scripts/firebaseConfig.js"></script>
+    <script src="//unpkg.com/d3-array"></script>
+    <script src="//unpkg.com/d3-scale"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script type="module" src="./scripts/main.js"></script>
+
     <script>
         window.axeptioSettings = {
             clientId: "62b8c0847c591dfcedcecac0",
@@ -268,6 +354,7 @@
             t.parentNode.insertBefore(e, t);
         })(document, "script");
     </script>
+
 </body>
 
 </html>
