@@ -268,13 +268,33 @@ main {
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+       .slide-container{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 40px;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        > .slide-content{
+          padding: 50px;
+          display: flex;
+          flex-direction: column;
+          h3{
+            font-size: 2rem;
+          }
+          h3,a,p{
+            color: #fff;
+            text-align: left;
+          }
+          p{
+            margin: 10px 0px;
+            font-weight: 200;
+          }
+        }
+       }
     }
   }
 

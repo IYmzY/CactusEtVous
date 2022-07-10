@@ -10,16 +10,15 @@ import '../styles/reset.css'
 import '../styles/global.scss'
 import '../styles/main.scss'
 
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where, orderBy, limit } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { app } from "./firebaseConfig";
 
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    centeredSlides: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+
+
 
 
 const colorScale = d3.scaleOrdinal(['#041B1B',]);
@@ -94,6 +93,43 @@ window.addEventListener('resize', () => {
     testimonyGlobe.width(globeSize * screenWidth)
     testimonyGlobe.height(globeSize * screenWidth)
 });
+
+// recuperation des articles de blog
+async function docs(){
+    const slide = document.querySelector('.swiper-wrapper');
+    const articles = collection(db, "articles");
+    let dateNow = new Date();
+    let docsLastArticles = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(5));
+    docsLastArticles = await getDocs(docsLastArticles).then((docs) => {
+        docs.forEach((doc) => {
+            let data = doc.data();
+            let blogSlide = `
+                <div class="swiper-slide">
+                    <div class="slide-container" style="background-image:url(${data.url_picture})">
+                        <div class="slide-content">
+                            <h3 class="slide-title">${data.title}</h3>
+                            <p class="slide-content">${data.synopsis}</p>
+                            <a class="slide-button" href="blog/article/index.html?id=${doc.id}">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            slide.innerHTML += blogSlide;
+        });
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 0,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    });
+}
+docs()
+
+
 
 
 
