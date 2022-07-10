@@ -14,7 +14,13 @@ module.exports = defineConfig({
                 editArticle: resolve(__dirname, 'blog/edit/index.html'),
                 article: resolve(__dirname, 'blog/article/index.html'),
                 // notFound: resolve(__dirname, 'not-found/index.html'),
-            }
+                addTestimonials: resolve(__dirname, 'testimonials/add/index.html'),
+                editTestimonial: resolve(__dirname, 'testimonials/edit/index.html'),
+                testimonial: resolve(__dirname, 'testimonials/history/index.html'),
+                // connect 
+                connectLogin: resolve(__dirname, 'connect/SignIn/index.html'),
+                connectSignUp: resolve(__dirname, 'connect/SignOut/index.html'),
+            }   
         }
     }
 })
