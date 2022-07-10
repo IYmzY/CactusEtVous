@@ -21,11 +21,12 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 
-const colorScale = d3.scaleOrdinal(['green',]);
+const colorScale = d3.scaleOrdinal(['#041B1B',]);
 
 const labelsTopOrientation = new Set(['Arles, Italie', 'Quito, Equateur ', 'Chichaoua, Maroc', 'Tour de la Sicile', 'Iquitos, Pérou', 'Val-Des-Près, France', 'Île de Sulawesi, Indonésie', 'Ormara, Pakistan']);
 
 const labelContainer = document.querySelector('.testimony-label-container');
+
 
 let screenWidth = window.innerWidth;
 const globeSize = 0.5;
@@ -34,8 +35,8 @@ const globeSize = 0.5;
 
 const elem = document.getElementById('testimony-globe');
 const testimonyGlobe = Globe()
-    .globeImageUrl('../images/imgContainers/globe-texture.png')
-    .bumpImageUrl('../images/imgContainers/globe-bumpmap.png')
+    .bumpImageUrl('../images/imgContainers/globe-bumpmap.svg')
+    .globeImageUrl('../images/imgContainers/globe-texture.svg')
     .backgroundColor('rgba(0,0,0,0)')
     .width(globeSize * screenWidth)
     .height(globeSize * screenWidth)
@@ -57,13 +58,13 @@ const testimonyGlobe = Globe()
             return;
         };
         labelContainer.innerHTML = `
-            <h3>${d.title}</h3>
-            <div class=" testimony-content">
-                <p>${d.content}</p>
-                <img class="quote-up" src="./images/icon/quoteUp.svg">
-                <img class="quote-down" src="./images/icon/quoteDown.svg">
+            <h3 class="testimony-label-title" >${d.title}</h3>
+            <div class="testimony-content-container">
+                <p class="testimony-label-content">${d.content}</p>
+                <img class="testimony-label-quoteUp" src="./images/icon/quoteUp.svg">
+                <img class="testimony-label-quoteDown" src="./images/icon/quoteDown.svg">
             </div>
-            <span><a href="${d.url}">En savoir plus</a></span>
+            <span><a class="testimony-label-button" href="${d.url}">En savoir plus</a></span>
         `
     })
     (elem)
