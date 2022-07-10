@@ -176,74 +176,65 @@ main {
       text-align: center;
       margin-bottom: 0;
     }
-    article {
+    .testimony-globe-container {
       width: 100%;
       display: flex;
       justify-content: flex-start;
-      padding-left: 5rem;
       align-items: center;
-      .testimony-globe-container {
+      .testimony-label-container {
         display: flex;
-        flex-flow: row nowrap;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        #testimony-globe {
-          position: relative;
+        justify-content: center;
+        .testimony-label-title {
+          font-family: "Neue Plak";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 43px;
+          text-transform: uppercase;
+          color: #093a3a;
+          margin-bottom: 1rem;
         }
-        .testimony-label-container {
-          width: max-content;
-          max-width: 40vw;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: absolute;
-          left: 15vw;
-          height: 100vh;
-          top: 0vh;
-          h3 {
+        .testimony-content-container {
+          position: relative;
+          max-width: 45vw;
+          .testimony-label-content {
+            font-family: "Neue Plak";
+            font-style: italic;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 34px;
+            text-align: center;
+            color: #041b1b;
+            padding: 1rem 1rem;
+          }
+          img {
+            position: absolute;
+          }
+          .testimony-label-quoteUp {
+            right: 0;
+            top: 0;
+          }
+          .testimony-label-quoteDown {
+            bottom: 0;
+            left: 0;
+          }
+        }
+        span {
+          a {
             font-family: "Neue Plak";
             font-style: normal;
             font-weight: 400;
-            font-size: 32px;
-            line-height: 43px;
-            text-transform: uppercase;
-            color: #093a3a;
-            margin-bottom: 1rem;
+            font-size: 24px;
+            line-height: 33px;
+            text-align: center;
+            text-decoration-line: underline;
+            color: #1cc9c9;
+            cursor: pointer;
           }
-          .testimony-content {
-            position: relative;
-            p {
-              font-family: "Neue Plak";
-              font-style: italic;
-              font-weight: 400;
-              font-size: 24px;
-              line-height: 34px;
-              text-align: center;
-              color: #041b1b;
-            }
-            img {
-              position: absolute;
-            }
-            .quote-up {
-              top: 0;
-              left: 0;
-            }
-            .quote-down {
-              bottom: 0;
-              right: 0;
-            }
-          }
-          span {
-            a {
-              font-family: "Neue Plak";
-              font-style: normal;
-              font-weight: 400;
-              font-size: 24px;
-              line-height: 33px;
-              text-align: center;
-              text-decoration-line: underline;
-              color: #1cc9c9;
-            }
+          a:hover {
+            color: #54d077;
           }
         }
       }
@@ -297,6 +288,7 @@ main {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       span {
         font-family: "Neue Plak";
         font-style: normal;
@@ -309,119 +301,209 @@ main {
       }
     }
   }
-  .blog-news-container {
+  .carousel-section-container {
     margin-top: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    h2 {
+    button {
+      background: #093a3a;
+      border-radius: 20px;
+      font-family: "Retroica";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 36px;
+      margin-top: 2rem;
+      height: 3rem;
+      color: white;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      width: fit-content;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  .newsletter-section-container {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .newsletter-container {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      justify-content: space-evenly;
+      .newsletter-content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 35vw;
+        h2 {
+          margin-bottom: 5.4375rem;
+        }
+        p {
+          font-family: "Neue Plak";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 29px;
+          color: #000000;
+          width: 35vw;
+          margin-bottom: 4.375rem;
+        }
+        #mc_embed_signup {
+          form {
+            .mc-field-group {
+              display: flex;
+              position: relative;
+              .email {
+                border: 3px solid #093a24;
+                border-radius: 20px;
+                width: 25vw;
+                padding: 0.5rem 1rem;
+                font-family: "Neue Plak";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                color: #878588;
+                margin-right: 0.5rem;
+                height: 3rem;
+              }
+              input::placeholder {
+                font-family: "Neue Plak";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                color: #878588;
+                padding: 0.5rem 1rem;
+              }
+              #mc-embedded-subscribe {
+                background: #093a3a;
+                border-radius: 20px;
+                text-align: center;
+                color: #ffffff;
+                font-family: "Neue Plak";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 39px;
+                width: 9rem;
+              }
+            }
+          }
+        }
+      }
+      .newsletter-view-container {
+        display: flex;
+        align-items: center;
+
+        .newsletter-left-view-container {
+          margin-right: 2.5rem;
+          height: 75vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-end;
+
+          .newsletter-top-left-view {
+            margin-bottom: 2.5rem;
+            width: 16rem;
+            height: 16rem;
+            border-radius: 70px 10px 10px 10px;
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+          }
+          .newsletter-bottom-left-view {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 10px;
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+          }
+        }
+        .newsletter-right-view-container {
+          flex-direction: column;
+          height: 75vh;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          .newsletter-top-right-view {
+            margin-bottom: 2.5rem;
+            width: 20rem;
+            height: 20rem;
+            border-radius: 70px 10px 10px 10px;
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+          }
+          .newsletter-bottom-right-view {
+            width: 12.5rem;
+            height: 12.5rem;
+            border-radius: 10px 10px 70px 10px;
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+          }
+        }
+      }
     }
   }
 }
 
-/*SLIDER*/
+//handle mailchimp error
+#mc_embed_signup div.mce_inline_error {
+  position: absolute;
+  top: 5.5vh;
+  background-color: transparent;
+  color: #6b0505;
+  font-family: "Neue Plak";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
 
-//   .return {
-//     height: 15vh;
-//     @media screen and (max-width: 768px) {
-//       height: 10vh;
-//     }
-//     .mobile {
-//       display: none;
-//       @media screen and (max-width: 768px) {
-//         display: flex;
-//       }
-//       .logo {
-//         width: 60%;
-//         display: flex;
-//         justify-content: flex-end;
-//       }
-//       .menu {
-//         width: 40%;
-//         display: flex;
-//         justify-content: flex-end;
-//       }
-//     }
-//     .computer {
-//       @media screen and (max-width: 768px) {
-//         display: none;
-//       }
-//     }
-//     h3 {
-//       font-size: 15px;
-//     }
-//   }
-
-//   .error {
-//     height: 90vh;
-//     width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     @media screen and (max-width: 768px) {
-//       flex-direction: column;
-//       height: 90vh;
-//     }
-
-//     .text {
-//       width: 50%;
-//       display: flex;
-//       flex-direction: column;
-//       padding-left: 150px;
-//       @media screen and (max-width: 768px) {
-//         width: 100%;
-//         height: 40%;
-//         padding-left: 0;
-//         align-items: center;
-//       }
-
-//       h1 {
-//         color: #106666;
-//         font-size: 70px;
-//         @media screen and (max-width: 768px) {
-//           font-size: 22px;
-//         }
-//       }
-
-//       h4 {
-//         color: #041b1b;
-//         font-size: 20px;
-//         font-family: "Neue Plak", sans-serif;
-//         @media screen and (max-width: 768px) {
-//           font-weight: normal;
-//         }
-//       }
-
-//       p {
-//         line-height: 25px;
-//       }
-
-//       input {
-//         border-radius: 10px;
-//         background-color: #093a3a;
-//         width: 300px;
-//         height: 30px;
-//         color: #f9f9f9;
-//         margin-top: 100px;
-//         cursor: pointer;
-//         @media screen and (max-width: 768px) {
-//           margin-top: 30px;
-//         }
-//       }
-//     }
-
-//     .img {
-//       width: 50%;
-//       background-image: url(/images/imgContainers/Norvège.jpeg);
-//       background-size: auto 100%;
-//       background-repeat: no-repeat;
-//       @media screen and (max-width: 768px) {
-//         width: 100%;
-//         height: 50%;
-//         background-size: 80% 80%;
-//         background-position: center;
-//       }
-//     }
-//   }
-// }
+footer {
+  margin-top: 6rem;
+  background: #093a3a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  div {
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 5rem 0;
+      li {
+        font-family: "Retroica";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 36px;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+    }
+    div {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      font-family: "Retroica";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 36px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 3rem 0;
+      p:first-child {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
