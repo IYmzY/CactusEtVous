@@ -38,6 +38,7 @@ main {
     align-items: center;
     justify-content: flex-start;
     padding: 0px 7rem;
+    position: relative;
 
     article {
       max-width: 60vw;
@@ -151,6 +152,7 @@ main {
       }
       .explainer-preview-container {
         position: relative;
+        cursor: pointer;
         .explainer-preview {
           width: 65vw;
           height: 65vh;
@@ -159,9 +161,31 @@ main {
         }
         .explainer-preview-play-icon {
           position: absolute;
-          top: 33%;
-          left: 41%;
+          top: 32.5%;
+          left: 41.5%;
+          height: 13rem;
         }
+      }
+    }
+  }
+  .explainer-ytb-container {
+    position: absolute;
+    box-shadow: -20rem -20rem 1rem 50rem rgb(0 0 0 / 95%);
+    display: none;
+    left: 18vw;
+    iframe {
+      width: 65vw;
+      height: 71vh;
+    }
+    div {
+      position: relative;
+      display: none;
+      img {
+        position: absolute;
+        top: 0;
+        left: 2vw;
+        height: 13vh;
+        cursor: pointer;
       }
     }
   }
@@ -244,6 +268,9 @@ main {
   .carousel-section-container {
     width: 100%;
     height: 80vh;
+    h2 {
+      margin-bottom: 3rem;
+    }
 
     .swiper {
       width: 100%;
@@ -268,7 +295,7 @@ main {
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
-       .slide-container{
+      .slide-container {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -278,23 +305,25 @@ main {
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
-        > .slide-content{
+        > .slide-content {
           padding: 50px;
           display: flex;
           flex-direction: column;
-          h3{
+          h3 {
             font-size: 2rem;
           }
-          h3,a,p{
+          h3,
+          a,
+          p {
             color: #fff;
             text-align: left;
           }
-          p{
+          p {
             margin: 10px 0px;
             font-weight: 200;
           }
         }
-       }
+      }
     }
   }
 
@@ -327,6 +356,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 90vh;
 
     button {
       background: #093a3a;
@@ -336,7 +366,7 @@ main {
       font-weight: 400;
       font-size: 20px;
       line-height: 36px;
-      margin-top: 2rem;
+      margin-top: 3rem;
       height: 3rem;
       color: white;
       text-transform: uppercase;

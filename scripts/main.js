@@ -1,5 +1,5 @@
 import Globe from 'globe.gl';
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper';
 import { globeConfig } from './globe-config/globe-testimony-info';
 
 import 'swiper/css';
@@ -10,12 +10,11 @@ import '../styles/reset.css'
 import '../styles/global.scss'
 import '../styles/main.scss'
 
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where, orderBy, limit } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { app } from "./firebaseConfig";
+import { getFirestore, collection, getDocs, query, where, orderBy, limit } from "firebase/firestore";
 
 const db = getFirestore(app);
-const storage = getStorage(app);
+
 
 
 
@@ -29,6 +28,7 @@ const labelContainer = document.querySelector('.testimony-label-container');
 
 
 let screenWidth = window.innerWidth;
+let screenHeight = window.innerHeight;
 const globeSize = 0.5;
 
 
@@ -95,7 +95,7 @@ window.addEventListener('resize', () => {
 });
 
 // recuperation des articles de blog
-async function docs(){
+async function docs() {
     const slide = document.querySelector('.swiper-wrapper');
     const articles = collection(db, "articles");
     let dateNow = new Date();
@@ -128,6 +128,54 @@ async function docs(){
     });
 }
 docs()
+
+//Explainer 
+//open Explainer
+document.querySelector('.explainer-preview-container')
+    .addEventListener('click', () => {
+
+        let currentScrollY = `${window.scrollY + (screenHeight * 0.2)}px`
+
+        const explainerYtb = document.querySelector('.explainer-ytb-container')
+        explainerYtb.style.display = "flex"
+        explainerYtb.style.top = currentScrollY
+
+        document.querySelector('.close-explainer-container').style.display = "flex"
+
+        // block scroll
+        document.querySelector('body').style.overflow = 'hidden'
+    })
+//Close Explainer
+document.querySelector('.close-explainer-container img').addEventListener('click', () => {
+
+    //close "close" button
+    document.querySelector('.close-explainer-container').style.display = "none"
+
+    //close explainer
+    document.querySelector('.explainer-ytb-container').style.display = "none"
+
+    //restore scroll
+    document.querySelector('body').style.overflow = 'auto'
+})
+
+// explainer play & pause
+
+const handleExplainerPlayPause = () => {
+    const ytbVideo = document.querySelector('.ytbIframe-explainer')
+    console.log(ytbVideo)
+    console.log(ytbVideo.contentWindow)
+    const explainerYtbContainer = document.querySelector('.explainer-ytb-container')
+
+    if (explainerYtbContainer.style.display === "flex") {
+        ytbVideo.contentWindow.playVideo()
+    } else {
+        ytbVideo.contentWindow.pauseVideo()
+    }
+}
+handleExplainerPlayPause()
+
+
+
 
 
 
