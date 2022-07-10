@@ -1,65 +1,91 @@
+import Globe from 'globe.gl';
+import Swiper, { Navigation, Pagination } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import '../styles/reset.css'
 import '../styles/global.scss'
 import '../styles/main.scss'
-import '../styles/flickity.min.css'
 
 
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    centeredSlides: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
 
 
-const colorScale = d3.scaleOrdinal(['green']);
+const colorScale = d3.scaleOrdinal(['green',]);
+
 const labelsTopOrientation = new Set(['Arles, Italie', 'Quito, Equateur ', 'Chichaoua, Maroc', 'Tour de la Sicile', 'Iquitos, Pérou', 'Val-Des-Près, France', 'Île de Sulawesi, Indonésie', 'Ormara, Pakistan']);
+
+const labelContainer = document.querySelector('.testimony-label-container');
+
+let screenWidth = window.innerWidth;
+const globeSize = 0.5;
+
+
 
 const elem = document.getElementById('testimony-globe');
 const testimonyGlobe = Globe()
     .globeImageUrl('../images/imgContainers/globe-texture.png')
     .bumpImageUrl('../images/imgContainers/globe-bumpmap.png')
     .backgroundColor('rgba(0,0,0,0)')
-    .width([500])
+    .width(globeSize * screenWidth)
+    .height(globeSize * screenWidth)
     .showGraticules(true)
     .showAtmosphere(false)
     .labelText('title')
     .labelSize(4)
-    .labelDotRadius(2)
+    .labelDotRadius(1)
+    .labelIncludeDot(true)
     .labelDotOrientation(d => labelsTopOrientation.has(d.title) ? 'top' : 'bottom')
     .labelColor(d => colorScale(d.title))
-    .labelLabel(d => `
-    <div class="testimony-content-container">
-                    <h3>${d.title}</h3>
-                    <div class=" testimony-content">
-                        <p>${d.content}</p>
-                        <img class="quote-up" src="./images/icon/quoteUp.svg">
-                        <img class="quote-down" src="./images/icon/quoteDown.svg">
-                    </div>
-                    <span><a href="${d.url}">En savoir plus</a></span>
-                </div>
-      `)
-
-    .onLabelClick(d => window.open(d.url, '_blank'))
+    .onLabelClick(d => {
+        window.open(d.url, '_blank')
+    })
+    .onLabelHover((d) => {
+        testimonyGlobe.controls().autoRotate = false;
+        if (!d) {
+            testimonyGlobe.controls().autoRotate = true;
+            return;
+        };
+        labelContainer.innerHTML = `
+            <h3>${d.title}</h3>
+            <div class=" testimony-content">
+                <p>${d.content}</p>
+                <img class="quote-up" src="./images/icon/quoteUp.svg">
+                <img class="quote-down" src="./images/icon/quoteDown.svg">
+            </div>
+            <span><a href="${d.url}">En savoir plus</a></span>
+        `
+    })
     (elem)
-    // .onLabelHover(onHoverLaber())
     ;
 
-const onHoverLaber = async () => {
-    await testimonyGlobe.pauseAnimation().then(() => {
-        setTimeout(() => {
-            testimonyGlobe.resumeAnimation()
-        }, 2000)
-    })
-}
 
 
-fetch('../globe-config/globe-testimony-info.json').then(r => r.json()).then(testimonies => {
+fetch('../public/globe-config/globe-testimony-info.json').then(r => r.json()).then(testimonies => {
     testimonyGlobe.labelsData(testimonies);
 });
 testimonyGlobe.resumeAnimation()
 testimonyGlobe.controls().autoRotate = true;
 testimonyGlobe.controls().autoRotateSpeed = 0.5;
 testimonyGlobe.controls().enableZoom = false
-testimonyGlobe.controls().minPolarAngle = Math.PI / 2
-testimonyGlobe.controls().maxPolarAngle = Math.PI / 2
+testimonyGlobe.controls().minPolarAngle = Math.PI / 2.7
+testimonyGlobe.controls().maxPolarAngle = Math.PI / 1.8
 
-
-
+window.addEventListener('resize', () => {
+    screenWidth = window.innerWidth;
+    testimonyGlobe.width(globeSize * screenWidth)
+    testimonyGlobe.height(globeSize * screenWidth)
+});
 
 
 

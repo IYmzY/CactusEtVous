@@ -14,6 +14,15 @@ body {
   h6 {
     font-family: "copacanaba", sans-serif;
   }
+  h2 {
+    line-height: 60px;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    letter-spacing: 0.6375rem;
+    color: #093a3a;
+  }
 }
 
 main {
@@ -35,9 +44,8 @@ main {
       margin-top: 10rem;
 
       h2 {
-        width: 55vw;
-        font-size: 60px;
-        color: white;
+        width: 54vw;
+        color: #ffffff;
       }
 
       p {
@@ -105,7 +113,7 @@ main {
           position: absolute;
           top: 20vh;
           left: 40.5vw;
-          width: 54vw;
+          width: 56vw;
         }
         p {
           font-family: "Neue Plak";
@@ -164,7 +172,7 @@ main {
     justify-content: center;
     align-items: center;
     h2 {
-      width: 50vw;
+      width: 51vw;
       text-align: center;
       margin-bottom: 0;
     }
@@ -174,9 +182,15 @@ main {
       justify-content: flex-start;
       padding-left: 5rem;
       align-items: center;
-      #testimony-globe {
-        position: relative;
-        .testimony-content-container {
+      .testimony-globe-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        #testimony-globe {
+          position: relative;
+        }
+        .testimony-label-container {
           width: max-content;
           max-width: 40vw;
           display: flex;
@@ -235,6 +249,44 @@ main {
       }
     }
   }
+
+  .carousel-section-container {
+    width: 100%;
+    height: 80vh;
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   .statistiques-container {
     display: flex;
     justify-content: space-evenly;
@@ -263,51 +315,113 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     h2 {
-    }
-    .gallery {
-      width: 100%;
-      &-cell {
-        width: 40%;
-        margin-right: 10px;
-        &-content {
-          max-width: 500px;
-          margin: 69px auto 0 auto;
-          border: 1px solid blue;
-          text-align: center;
-          &-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            &-container {
-              position: absolute;
-              bottom: -69px;
-              width: 139px;
-              height: 139px;
-              border-radius: 50%;
-              overflow: hidden;
-              justify-content: center;
-              display: flex;
-              align-items: center;
-              border: 8px solid blue;
-              picture {
-                height: 100%;
-                img {
-                  height: 100%;
-                }
-              }
-            }
-          }
-          &-name {
-            margin: 77px 0 1rem 0;
-            line-height: 1.1rem;
-          }
-          &-quote {
-            margin: 0 10% 30px 10%;
-            line-height: 1.1rem;
-          }
-        }
-      }
     }
   }
 }
+
+/*SLIDER*/
+
+//   .return {
+//     height: 15vh;
+//     @media screen and (max-width: 768px) {
+//       height: 10vh;
+//     }
+//     .mobile {
+//       display: none;
+//       @media screen and (max-width: 768px) {
+//         display: flex;
+//       }
+//       .logo {
+//         width: 60%;
+//         display: flex;
+//         justify-content: flex-end;
+//       }
+//       .menu {
+//         width: 40%;
+//         display: flex;
+//         justify-content: flex-end;
+//       }
+//     }
+//     .computer {
+//       @media screen and (max-width: 768px) {
+//         display: none;
+//       }
+//     }
+//     h3 {
+//       font-size: 15px;
+//     }
+//   }
+
+//   .error {
+//     height: 90vh;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     @media screen and (max-width: 768px) {
+//       flex-direction: column;
+//       height: 90vh;
+//     }
+
+//     .text {
+//       width: 50%;
+//       display: flex;
+//       flex-direction: column;
+//       padding-left: 150px;
+//       @media screen and (max-width: 768px) {
+//         width: 100%;
+//         height: 40%;
+//         padding-left: 0;
+//         align-items: center;
+//       }
+
+//       h1 {
+//         color: #106666;
+//         font-size: 70px;
+//         @media screen and (max-width: 768px) {
+//           font-size: 22px;
+//         }
+//       }
+
+//       h4 {
+//         color: #041b1b;
+//         font-size: 20px;
+//         font-family: "Neue Plak", sans-serif;
+//         @media screen and (max-width: 768px) {
+//           font-weight: normal;
+//         }
+//       }
+
+//       p {
+//         line-height: 25px;
+//       }
+
+//       input {
+//         border-radius: 10px;
+//         background-color: #093a3a;
+//         width: 300px;
+//         height: 30px;
+//         color: #f9f9f9;
+//         margin-top: 100px;
+//         cursor: pointer;
+//         @media screen and (max-width: 768px) {
+//           margin-top: 30px;
+//         }
+//       }
+//     }
+
+//     .img {
+//       width: 50%;
+//       background-image: url(/images/imgContainers/Norvège.jpeg);
+//       background-size: auto 100%;
+//       background-repeat: no-repeat;
+//       @media screen and (max-width: 768px) {
+//         width: 100%;
+//         height: 50%;
+//         background-size: 80% 80%;
+//         background-position: center;
+//       }
+//     }
+//   }
+// }
