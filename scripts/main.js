@@ -1,5 +1,6 @@
 import Globe from 'globe.gl';
 import Swiper, { Navigation, Pagination } from 'swiper';
+import { globeConfig } from './globe-config/globe-testimony-info';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -71,10 +72,16 @@ const testimonyGlobe = Globe()
     ;
 
 
+// fetch('..//globe-config/globe-testimony-info').then(r => r.text()).then(testimonies => {
+//     testimonyGlobe.labelsData(testimonies);
+// });
 
-fetch('../public/globe-config/globe-testimony-info.json').then(r => r.json()).then(testimonies => {
-    testimonyGlobe.labelsData(testimonies);
-});
+
+testimonyGlobe.labelsData(globeConfig);
+
+
+console.log(globeConfig)
+
 testimonyGlobe.resumeAnimation()
 testimonyGlobe.controls().autoRotate = true;
 testimonyGlobe.controls().autoRotateSpeed = 0.5;
