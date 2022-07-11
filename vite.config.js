@@ -8,6 +8,7 @@ module.exports = defineConfig({
             input: {
                 main: resolve(__dirname, 'index.html'),
                 connect: resolve(__dirname, 'connect/index.html'),
+                signUp: resolve(__dirname, 'connect/signUp/index.html'),
                 privacyPolicy: resolve(__dirname, 'privacy-policy/index.html'),
                 blog: resolve(__dirname, 'blog/index.html'),
                 addArticles: resolve(__dirname, 'blog/add/index.html'),
@@ -17,9 +18,6 @@ module.exports = defineConfig({
                 addTestimonials: resolve(__dirname, 'testimonials/add/index.html'),
                 editTestimonial: resolve(__dirname, 'testimonials/edit/index.html'),
                 testimonial: resolve(__dirname, 'testimonials/history/index.html'),
-                // connect 
-                // connectLogin: resolve(__dirname, 'connect/signIn/index.html'),
-                // connectSignUp: resolve(__dirname, 'connect/signOut/index.html'),
             }
         }
     }

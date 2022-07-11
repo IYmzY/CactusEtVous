@@ -1,216 +1,146 @@
-export main{
-  height: calc(100vh - 113.4px);
-  width: 100%;
-  &#login{
-    article:last-child{
-     background-image: url('../images/login/log-in-img.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-  }
-  &#register{
-    article:last-child{
-    background-image: url('../images/login/register-img.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    .group{
-      margin-bottom: 25px;
-    }
-  }
-  section{
-    display: flex;
-    height: 100%;
-    article{
-      width: 50%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+body {
+  overflow-y: hidden;
 }
-
-.header-container{
-  position: static;
-  .filter-background{
-    background: none;
-  }
-  nav{
-    ul{
-      li{
-        color: black;
-        a{
-          text-shadow: none;
+.main-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: 8rem;
+  justify-content: space-between;
+  overflow-y: hidden;
+  .connect-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 40vw;
+    margin-left: 7rem;
+    height: 100%;
+    h2 {
+      font-family: "Copacabana";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 39px;
+      text-align: center;
+      color: #106666;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-family: "Neue Plak";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 39px;
+      text-align: center;
+      color: #041b1b;
+      margin-bottom: 2rem;
+    }
+    #signIn {
+      form {
+        .group {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          margin-bottom: 2rem;
+          label {
+            font-family: "Neue Plak";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            text-align: center;
+            color: #041b1b;
+            margin-bottom: 0.8rem;
+          }
+          input {
+            border: 1px solid rgba(22, 157, 157, 0.65);
+            border-radius: 10px;
+            font-family: "Neue Plak";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            text-align: start;
+            color: rgba(22, 157, 157, 0.95);
+            width: 25vw;
+            padding: 0.5rem 1rem;
+          }
+          input::placeholder {
+            font-family: "Neue Plak";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 39px;
+            text-align: start;
+            color: rgba(22, 157, 157, 0.95);
+            padding: 0.5rem 0.5rem;
+          }
+        }
+        button {
+          background: #093a3a;
+          border-radius: 20px;
+          font-family: "Neue Plak";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 39px;
+          text-align: center;
+          color: #ffffff;
+          padding: 0.5rem 0.5rem;
+          width: 100%;
+          margin-bottom: 1rem;
         }
       }
     }
-  }
-}
-
-.header{
-  margin-bottom: 20px;
-  h1{
-    font-size: 1.9rem;
-    font-weight: bold;
-    color: #106666;
-    margin-bottom: 30px;
-  }
-  h4{
-    font-family: "Neue Plak", sans-serif;
-    font-weight: 200;
-    margin-bottom: 60px;
-  }
-  a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    &:hover{
-      text-decoration: underline;
+    .register {
+      display: flex;
+      width: 25vw;
+      justify-content: center;
+      margin-bottom: 1rem;
+      h3 {
+        font-family: "Neue Plak";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 39px;
+        text-align: center;
+        color: #041b1b;
+        margin-bottom: 0;
+        a {
+          color: #169d9d !important;
+        }
+      }
     }
-  }
-}
-
-.group {
-  margin-bottom: 45px;
-  &.new{
-    p{
-      font-size: 1rem;
-      font-weight: 200;
-      margin-bottom: 20px;
+    .or-connect-google {
+      display: flex;
+      align-items: center;
+      width: 25vw;
+      margin-bottom: 1rem;
+      hr {
+        width: 80%;
+      }
+      span {
+        text-align: center;
+        width: 40%;
+      }
+    }
+    .google {
       text-align: center;
-      a{
-        color: #169D9D;
-      }
-
+      width: 25vw;
+      height: 100%;
+      border: #041b1b 1px solid;
+      border-radius: 2rem;
+      padding: 0.3rem 1rem;
     }
   }
-  &.forgot{
-    margin-top: -20px;
-    p{
-      font-size: 1rem;
-      font-weight: 200;
-      margin-bottom: 20px;
-      text-align: right;
-      a{
-       text-decoration: underline;
-
-      }
-
+  .connect-img-container {
+    img {
+      width: 55vw;
+      height: 90vh;
+      object-position: center;
+      object-fit: cover;
     }
   }
-}
-
-.new{
-  p{
-    font-size: 1rem;
-    font-weight: 200;
-    margin-bottom: 20px;
-    a{
-      color: #169D9D;
-      font-size: 1rem;
-      font-weight: 200;
-    }
-
-  }
-}
-
-.warn{
-  font-size: 0.90rem;
-  font-weight: 200;
-  text-align: center;
-}
-
-label{
-  margin-left: 15px;
-}
-
-input {
-  font-size: 18px;
-  padding: 15px;
-  -webkit-appearance: none;
-  display: block;
-  color: #636363;
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  border:1px solid #169D9D;
-  margin-top: 10px;
-}
-
-input:focus {
-  outline: none;
-}
-
-
-
-/* Error Label */
-
-.errorlabel {
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  -webkit-appearance: none;
-  display: block;
-  background: #fafafa;
-  color: #ff0000;
-  width: 100%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #ff0000;
-}
-
-/* active */
-
-
-
-/* Underline */
-
-
-
-
-/* Button */
-
-.button {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 0.3em 0 1em 0;
-  width: 100%;
-  vertical-align: middle;
-  color: #fff;
-  font-size: 16px;
-  line-height: 20px;
-  -webkit-font-smoothing: antialiased;
-  text-align: center;
-  letter-spacing: 1px;
-  background: transparent;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.button:focus {
-  outline: 0;
-}
-
-/* Button modifiers */
-
-.buttonGreen {
-  background: #093A3A;
-  text-shadow: 1px 1px 0 rgba(39, 110, 204, 0.5);
-}
-
-.buttonGreen:hover {
-  background: #0f5f5f;
-}
-
-.signIn-signUp-Container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-#app{
-  display: none;
 }
