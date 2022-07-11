@@ -1,46 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="icon" type="image/png" href="../public/icon-16x16.png" />
-    <link rel="icon" type="image/png" href="../public/icon-32x32.png" />
-    <link rel="icon" type="image/png" href="../public/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" href="../public/android-chrome-512x512.png" />
-    <link rel="icon" type="image/png" href="../public/favicon.ico" />
-    <link rel="icon" type="image/png" href="../public/apple-touch-icon.png" />
-    <link rel="stylesheet" href="https://use.typekit.net/zkf2zix.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <title>Blog</title>
+        <link rel="icon"
+            type="image/png"
+            href="../public/icon-16x16.png" />
+        <link rel="icon"
+            type="image/png"
+            href="../public/icon-32x32.png" />
+        <link rel="icon"
+            type="image/png"
+            href="../public/android-chrome-192x192.png" />
+        <link rel="icon"
+            type="image/png"
+            href="../public/android-chrome-512x512.png" />
+        <link rel="icon"
+            type="image/png"
+            href="../public/favicon.ico" />
+        <link rel="icon"
+            type="image/png"
+            href="../public/apple-touch-icon.png" />
+        <link rel="stylesheet"
+            href="https://use.typekit.net/zkf2zix.css">
+    </head>
 
-<body>
-    <header class="header-container">
-        <div class="filter-background"></div>
-        <h1 class="logo-container">
-            <img class="logo" src="../../images/logo/logo.svg">
-        </h1>
-        <nav>
-            <ul class="nav-container">
-                <li><a href="../../">Home</a></li>
-                <li><a href="">Créer votre expérience</a></li>
-                <li class="profil"><a href="../connect/">se connecter</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <article>
-                <h1>Quelle destination vous correspond le mieux</h1>
-                <p>En répondant à nos questions, nous pourrons déterminer ensemble quel séjour est le plus adapté à vos
-                    besoins !</p>
-                <a class="btn" href="q1.html">commencer</a>
-            </article>
-        </section>
-    </main>
-    <script type="module" src="../scripts/firebaseConfig.js"></script>
-    <script type="module" src="../scripts/quiz.js"></script>
-</body>
+    <body>
+        <header class="header-container">
+            <div class="filter-background"></div>
+            <h1 class="logo-container">
+                <img class="logo"
+                    src="../../images/logo/logo-b.svg">
+            </h1>
+            <nav>
+                <ul class="nav-container">
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="">Créer votre expérience</a></li>
+                    <li class="profil"><a href="../connect/">se connecter</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <article>
+                    <h1>Quelle est votre façon de vous relaxer ?</h1>
+                    <div class="answers">
+                        <div class="one">
+                            <button>
+                                <div class="image un"></div>
+                                <h3>COMME LA MÉTÉO</h3>
+                                <p class="description">Cela dépend de mon envie du moment</p>
+                            </button>
+                        </div>
+                        <div class="one">
+                            <button>
+                                <div class="image deux"></div>
+                                <h3>PELAGE SOYEUX</h3>
+                                <p class="description">J’apprécie m’occuper de moi (spa,
+                                    restaurants...)</p>
+                            </button>
+                        </div>
+                        <div class="one">
+                            <button>
+                                <div class="image trois"></div>
+                                <h3>TORTEM TORTUE</h3>
+                                <p class="description">Je prends mon temps, je n’en fais pas trop
+                                </p>
+                            </button>
+                        </div>
+                        <div class="one">
+                            <button>
+                                <div class="image quatre"></div>
+                                <h3>Comme le bip-bip</h3>
+                                <p class="description">Je reste actif, je souhaite tout faire</p>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="btn" href="q2.html">Next</a>
+                </article>
+            </section>
+        </main>
+        <script type="module"
+            src="../scripts/firebaseConfig.js"></script>
+        <script type="module"
+            src="../scripts/quiz.js"></script>
+    </body>
 
 </html>
