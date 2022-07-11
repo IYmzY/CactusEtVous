@@ -62,7 +62,7 @@ const monitorAuthState = async () => {
             console.log(user)
             showApp()
             showLoginState(user)
-           hideLoginError()
+            hideLoginError()
         }
         else {
             showLoginForm()

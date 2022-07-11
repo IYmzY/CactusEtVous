@@ -1,5 +1,5 @@
 import Globe from 'globe.gl';
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper';
 import { globeConfig } from './globe-config/globe-testimony-info';
 
 import 'swiper/css';
@@ -10,16 +10,14 @@ import '../styles/reset.css'
 import '../styles/global.scss'
 import '../styles/main.scss'
 
+import { app } from "./firebaseConfig";
+import { getFirestore, collection, getDocs, query, where, orderBy, limit } from "firebase/firestore";
 
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    centeredSlides: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
+const db = getFirestore(app);
+
+
+
+
 
 
 const colorScale = d3.scaleOrdinal(['#041B1B',]);
@@ -30,6 +28,7 @@ const labelContainer = document.querySelector('.testimony-label-container');
 
 
 let screenWidth = window.innerWidth;
+let screenHeight = window.innerHeight;
 const globeSize = 0.5;
 
 
@@ -94,6 +93,91 @@ window.addEventListener('resize', () => {
     testimonyGlobe.width(globeSize * screenWidth)
     testimonyGlobe.height(globeSize * screenWidth)
 });
+
+// recuperation des articles de blog
+async function docs() {
+    const slide = document.querySelector('.swiper-wrapper');
+    const articles = collection(db, "articles");
+    let dateNow = new Date();
+    let docsLastArticles = query(articles, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(5));
+    docsLastArticles = await getDocs(docsLastArticles).then((docs) => {
+        docs.forEach((doc) => {
+            let data = doc.data();
+            let blogSlide = `
+                <div class="swiper-slide">
+                    <div class="slide-container" style="background-image:url(${data.url_picture})">
+                        <div class="slide-content">
+                            <h3 class="slide-title">${data.title}</h3>
+                            <p class="slide-content">${data.synopsis}</p>
+                            <a class="slide-button" href="blog/article/index.html?id=${doc.id}">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            slide.innerHTML += blogSlide;
+        });
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 0,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    });
+}
+docs()
+
+//Explainer 
+//open Explainer
+document.querySelector('.explainer-preview-container')
+    .addEventListener('click', () => {
+
+        let currentScrollY = `${window.scrollY + (screenHeight * 0.2)}px`
+
+        const explainerYtb = document.querySelector('.explainer-ytb-container')
+        explainerYtb.style.display = "flex"
+        explainerYtb.style.top = currentScrollY
+
+        document.querySelector('.close-explainer-container').style.display = "flex"
+
+        // block scroll
+        document.querySelector('body').style.overflow = 'hidden'
+    })
+//Close Explainer
+document.querySelector('.close-explainer-container img').addEventListener('click', () => {
+
+    //close "close" button
+    document.querySelector('.close-explainer-container').style.display = "none"
+
+    //close explainer
+    document.querySelector('.explainer-ytb-container').style.display = "none"
+
+    //restore scroll
+    document.querySelector('body').style.overflow = 'auto'
+})
+
+// explainer play & pause
+
+const handleExplainerPlayPause = () => {
+    const ytbVideo = document.querySelector('.ytbIframe-explainer')
+    console.log(ytbVideo)
+    console.log(ytbVideo.contentWindow)
+    const explainerYtbContainer = document.querySelector('.explainer-ytb-container')
+
+    if (explainerYtbContainer.style.display === "flex") {
+        ytbVideo.contentWindow.playVideo()
+    } else {
+        ytbVideo.contentWindow.pauseVideo()
+    }
+}
+handleExplainerPlayPause()
+
+
+
+
+
 
 
 

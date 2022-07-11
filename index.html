@@ -56,9 +56,9 @@
         </h1>
         <nav>
             <ul class="nav-container">
-                <li><a href="">Créer votre expérience</a></li>
-                <li><a href="./blog/index.html">le blog</a></li>
-                <li class="profil"><a href="connect/SignIn/index.html">se connecter</a></li>
+                <li><a href="./quiz/">Créer votre expérience</a></li>
+                <li><a href="./blog/">le blog</a></li>
+                <li class="profil"><a href="connect/">profile</a></li>
             </ul>
         </nav>
     </header>
@@ -67,7 +67,7 @@
             <article>
                 <h2>Reconnectez-vous au monde qui vous entoure.</h2>
                 <p>Voyagez à votre façon et venez vivre une expérience qui vous ressemble.</p>
-                <button>Créez votre expérience</button>
+                <button onclick="window.location.href = './quiz/';">Créez votre expérience</button>
             </article>
         </section>
         <section class="who-are-we">
@@ -93,6 +93,13 @@
                     <img class="explainer-preview-play-icon" src="./images/icon/play.svg">
                 </div>
             </article>
+        </section>
+        <section class="explainer-ytb-container">
+            <iframe class="ytbIframe-explainer" src="https://www.youtube-nocookie.com/embed/_OppesHp9nA?enablejsapi=1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <div class="close-explainer-container"><img src="images/icon/closeIcon.svg"></div>
         </section>
         <section class="testimony-users-container">
             <h2>ils parlent de nous</h2>
@@ -136,15 +143,11 @@
             <h2>La une du Blog</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
+
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-            <button><a href="./blog/index.html">acceder au blog</a></button>
+            <button><a href="./blog/">acceder au blog</a></button>
         </section>
         <section class="newsletter-section-container">
             <article class="newsletter-container">
@@ -212,7 +215,7 @@
             <div>
                 <p>© 2022 escapee</p>
                 <p>
-                    <a href="privacy-policy.html">Mentions légales, Politique de confidentialité</a>
+                    <a href="./privacy-policy/">Mentions légales & Politique de confidentialité</a>
                 </p>
             </div>
         </div>
