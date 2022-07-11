@@ -30,6 +30,7 @@ module.exports = defineConfig({
                 q8 : resolve(__dirname, 'quiz/q8.html'),
                 q9 : resolve(__dirname, 'quiz/q9.html'),
                 q10 : resolve(__dirname, 'quiz/q10.html'),
+                travels : resolve(__dirname, 'travels/read/index.html'),
             }
         }
     }
