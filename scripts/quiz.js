@@ -24,6 +24,44 @@ import {
   app
 } from "./firebaseConfig";
 
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+const travels = document.querySelector('#travels');
+if (travels != null) {
+   const travelsdb = collection(db, "travels");
+   let dateNow = new Date();
+   async function travels(){
+    let docsTravels = query(travelsdb, where("lastEdit", "<", dateNow), orderBy("lastEdit", "desc"), limit(3));
+    docsTravels = await getDocs(docsTravels);
+
+    docsTravels.forEach(doc => {
+      const travels = document.querySelector('#travels');
+      let div = document.createElement('div');
+      div.classList.add('travel');
+      div.innerHTML = `
+      <div class="travel-img" style="background-image:url(${doc.data().image[0]});">
+      </div>
+      <div class="travel-info">
+        <div>
+          <h2>${doc.data().name}</h2>
+          <p>${doc.data().desc}</p>
+        </div>
+        <div>
+        <a href="../travels/read/index.html?id=${doc.id}">Sélectioner</a>
+        </div>
+      </div>
+      `;
+      travels.appendChild(div);
+    });
+   }
+   travels();
+}
+
+
+
+
+
 var s = document.createElement('style');
 document.head.appendChild(s);
 var inputDiv = document.querySelector('#inputDiv');
@@ -52,3 +90,7 @@ elInput.addEventListener('input', function () {
   s.textContent += "input[type=range]::-moz-range-track{ background-image:-moz-linear-gradient(left, #9CD2D2 " + elInput.value + "%,black " + elInput.value + "%)}"
 
 }, false);
+
+
+
+

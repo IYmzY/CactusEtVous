@@ -79,3 +79,108 @@ main#add-container {
     background-color: #fff;
   }
 }
+
+main#travel{
+  section{
+    &:first-child{
+      height: 80vh;
+      width: 100%;
+      article{
+        width: 100%;
+        height: 100%;
+        background-color: #093a3a;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content:center;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+        > div:first-child{
+          margin-right: 50px;
+        }
+        .reserv{
+          position: absolute;
+          bottom: 10%;
+          left: 5%;
+          background-color: #E8F5F5;
+          padding: 20px;
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          p{
+            font-size: 1rem;
+            text-align: center;
+          }
+          h2{
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #000;
+            font-family: 'Neue Plak';
+          }
+        }
+        h1,h2{
+          text-align: right;
+          color: #fff;
+        }
+        h1{
+          font-size: 4rem;
+          font-weight:200;
+        }
+        h2:not(.reserv h2){
+          font-size: 2rem;
+          margin-top: 30px;
+        }
+      }
+    }
+    &:last-child{
+       article{
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        gap: 30px;
+        margin-top: 100px;
+        > div{
+          width: 50%;
+          height: max-content;
+          padding: 20px;
+          > div#content{
+            margin-top: 10px;
+            height: max-content;
+            .codex-editor{
+              height:max-content;
+            }
+          }
+        }
+        .activities{
+          background-color: #E8F5F5;
+          border-radius: 20px;
+          li{
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+          }
+        }
+       }
+    }
+  }
+  .btn{
+    display: inline-block;
+    background-color: #093a3a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #fff;
+      color: #093a3a;
+    }
+  }
+}

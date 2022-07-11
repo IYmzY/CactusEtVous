@@ -153,6 +153,70 @@ if (add != null){
 
 // Afficher travel avec l'id
 
+const travel = document.querySelector('#travel');
+if (travel != null) {
+  async function travel(){
+    const travel = document.querySelector('#travel');
+    const travelsdb = collection(db, "travels");
+    let imgTravel = document.querySelector('.img-travel');
+    let resev = document.querySelector('.reserv');
+
+
+    let url = new URL(window.location.href);
+    let id = url.searchParams.get("id");
+    let travelDataRef = doc(db, "travels", id);
+
+    let docs = await getDoc(travelDataRef).then((doc) => {
+        let data = doc.data();
+        let title = imgTravel.querySelector('h1');
+        title.innerHTML = data.name;
+        let titleH2 = imgTravel.querySelector('h2');
+        titleH2.innerHTML = data.desc;
+        let price = imgTravel.querySelector('.price');
+        price.innerHTML = "Coût total : "+data.price+"€";
+        let date = imgTravel.querySelector('.duration');
+        date.innerHTML = "Durée sur place :"+data.date;
+
+        let editorWrite = new EditorJS({
+            holderId: 'content',
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: ['link'],
+                },
+                embed: {
+                    class: Embed,
+                    inlineToolbar: false,
+                    config: {
+                        services: {
+                            youtube: true,
+                            coub: true,
+                        }
+                    }
+                },
+            },
+            data: data.content,
+            readOnly: true,
+        });
+
+        let activities = travel.querySelector('.activities ul');
+        data.activities.forEach(item => {
+            let li = document.createElement('li');
+            li.innerHTML = item;
+            activities.appendChild(li);
+        })
+
+        imgTravel.style.backgroundImage = `url('${data.image[0]}')`;
+
+    }).catch((error) => {
+        console.log(error);
+    });
+  }
+  travel()
+}
+
+
+
 // afficher trois travels par page en fonction des reponse du quizz
 
 
