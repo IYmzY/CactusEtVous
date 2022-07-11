@@ -73,19 +73,19 @@ var inputMax = elInput.getAttribute('max');
 var k = w / (inputMax);
 
 
-var etiqueta = document.querySelector('#etiqueta');
-var ew = parseInt(window.getComputedStyle(etiqueta, null).getPropertyValue("width"));
+var etiquette = document.querySelector('#etiqueta');
+var ew = parseInt(window.getComputedStyle(etiquette, null).getPropertyValue("width"));
 
 
-etiqueta.innerHTML = elInput.value;
-etiqueta.style.left = ((elInput.value * k) - (ew / 2)) + "px";
+etiquette.innerHTML = elInput.value;
+etiquette.style.left = ((elInput.value * k) - (ew / 2)) + "px";
 s.textContent = "input[type=range]::-webkit-slider-runnable-track{ background-image:-webkit-linear-gradient(left, #9CD2D2 " + elInput.value + "%,black " + elInput.value + "%)}"
 s.textContent += "input[type=range]::-moz-range-track{ background-image:-moz-linear-gradient(left, #9CD2D2 " + elInput.value + "%,black " + elInput.value + "%)}"
 
 
 elInput.addEventListener('input', function () {
-  etiqueta.innerHTML = elInput.value;
-  etiqueta.style.left = ((elInput.value * k) - (ew / 2)) + "px";
+  etiquette.innerHTML = elInput.value;
+  etiquette.style.left = ((elInput.value * k) - (ew / 2)) + "px";
   s.textContent = "input[type=range]::-webkit-slider-runnable-track{ background-image:-webkit-linear-gradient(left, #9CD2D2 " + elInput.value + "%,black " + elInput.value + "%)}"
   s.textContent += "input[type=range]::-moz-range-track{ background-image:-moz-linear-gradient(left, #9CD2D2 " + elInput.value + "%,black " + elInput.value + "%)}"
 

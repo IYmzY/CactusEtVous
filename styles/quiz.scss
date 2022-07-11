@@ -48,7 +48,7 @@ main {
 
             .accueil {
                 font-size: 1.5rem;
-                font-weight: 200;
+                font-weight: normal;
                 text-align: center;
                 margin-top: 60px;
                 margin-bottom: 60px;
@@ -96,6 +96,11 @@ main {
                     flex-direction: column;
                     align-items: center;
                     max-width: 175px;
+                    button{
+                        &:hover{
+                            background-color: rgb(199, 199, 199);
+                        }
+                    }
                 &.lieu{
                     max-width: 100px;
                 }
@@ -108,6 +113,9 @@ main {
                         text-align: left;
                         width: 300px;
                         cursor: pointer;
+                        &:hover{
+                            background-color: #9CD2D2;
+                        }
                     }
                     .image{
                         width: 175px;
