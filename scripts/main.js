@@ -35,8 +35,8 @@ const globeSize = 0.5;
 
 const elem = document.getElementById('testimony-globe');
 const testimonyGlobe = Globe()
-    .bumpImageUrl('../scripts/globe-config/globe-bumpmap.svg')
-    .globeImageUrl('../scripts/globe-config/globe-texture.svg')
+    .bumpImageUrl('../public/globe-bumpmap.svg')
+    .globeImageUrl('../public/globe-texture.svg')
     .backgroundColor('rgba(0,0,0,0)')
     .width(globeSize * screenWidth)
     .height(globeSize * screenWidth)
