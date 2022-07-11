@@ -5,6 +5,7 @@ import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import Embed from '@editorjs/embed';
 import ImageTool from '@editorjs/image';
+import { globeConfig } from './globe-config/globe-testimony-info';
 
 
 import { getFirestore, collection, addDoc, getDocs, doc, getDoc, setDoc, query, where, orderBy, limit } from "firebase/firestore";
@@ -13,7 +14,6 @@ import { app } from "./firebaseConfig";
 
 const db = getFirestore(app);
 const storage = getStorage(app);
-
 
 // Save the data to the database
 let addContainer = document.querySelector('#add-container');
@@ -35,34 +35,12 @@ if (addContainer != null) {
                     }
                 }
             },
-            image: {
-                class: ImageTool,
-                config: {
-                    uploader: {
-                        uploadByFile(file) {
-                            let fileName = renameImg(file.name);
-                            let storageRef = ref(storage, fileName);
-                            return uploadBytes(storageRef, file).then(async (snapshot) => {
-                                let url = await getDownloadURL(storageRef).then((url) => {
-                                    return url;
-                                }).catch((error) => {
-                                    console.log(error);
-                                });
-                                return {
-                                    success: 1,
-                                    file: {
-                                        url: url,
-                                    }
-                                }
-                            });
-                        }
-                    }
-                },
-            },
         }
     });
-    const travels = collection(db, "travels");
-    const travelers = collection(db, "users");
+
+    const travels = collection(db, "travels"); // séjours
+    const travelers = collection(db, "users"); // voyageurs
+
     // ajout des séjours dans le select de la page (travels-testimony)
     const selectTravel = document.querySelector('#travels-testimony');
     async function getTravels() {
@@ -83,6 +61,8 @@ if (addContainer != null) {
         );
     }
     getTravels();
+
+
     // ajout du voyageurs dans le select de la page (#travelers-testimony)
     const selectTraveler = document.querySelector('#travelers-testimony');
     async function getTravelers() {
@@ -103,64 +83,138 @@ if (addContainer != null) {
     saveBtn.addEventListener('click', () => {
         editorSave.save().then( async (outputData) => {
             let title = document.getElementById('title-testimony').value;
-            let travels = document.getElementById('travels-testimony').innerHTML;
-            
-            let file = document.getElementById('image-input').files[0];
-            let fileName = renameImg(file.name);
+            let travel = document.getElementById('travels-testimony').value;
 
-            let fileRef = ref(storage, fileName);
-            let fileUrl = await uploadBytes(fileRef, file).then(async (snapshot) => {
-                let url = await getDownloadURL(fileRef).then((url) => {
-                    return url;
+            let images = document.querySelector('#image-input').files;
+            let imagesArray = [];
+            let imagesUrl = [];
+
+            for (let i = 0; i < images.length; i++) {
+                const element = images[i];
+                imagesArray.push(element);
+            }
+
+            for await (const element of imagesArray) {
+                let fileName = renameImg(element.name);
+                let storageRef = ref(storage, fileName);
+                await uploadBytes(storageRef, element).then(async (snapshot) => {
+                    let url = await getDownloadURL(storageRef).then((url) => {
+                        return url;
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+                    imagesUrl.push(url);
                 }).catch((error) => {
                     console.log(error);
-                });
-                return url;
-            });
+                })
+            }
 
             let traveler = document.getElementById('travelers-testimony').value;
-            let content = document.getElementById('content-testimony').value;
-
-            // recupérer les données du voyages
-            let travel = await getDoc(db, 'travels', travels);
-            let travelData = travel.data();
-            let travelId = travel.id;
-            let travelTitle = travelData.title;
-            let travelDescription = travelData.description;
-            let travelImage = travelData.image;
-            let travelDate = travelData.date;
-            let travelPrice = travelData.price;
 
 
             addDoc(collection(db, 'testimonies'), {
-                title: title,
-                travels: travels,
+                citation: title,
+                travel: travel,
                 traveler: traveler,
-                content: content,
-                image: fileUrl,
+                content: outputData,
+                image: imagesUrl,
             }).then((snapshot) => {
-                window.location.href = "../../index.html";
+                // function d'ajout 
+                const id = snapshot.id;
+                globeConfig.push({
+                    lat: 0,
+                    lng: 0,
+                    title: "",
+                    content: title,
+                    url: "../../testimonials/history/index.html?id=" + id,
+                    
+                })
+                console.log(snapshot.id);
+                //window.location.href = "../../index.html";
             }).catch((error) => {
                 console.log(error)
             });
+
+
         })
     })
-    const image_input = document.querySelector("#image-input");
-
-    image_input.addEventListener("change", function () {
-        const reader = new FileReader();
-        reader.addEventListener("load", () => {
-            const uploaded_image = reader.result;
-            document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
-        });
-        reader.readAsDataURL(this.files[0]);
-    });
-
 }
 
 // edit the date to the database
 
 // affichage en fonction de l'id du testimony
+let readContainer = document.querySelector('#read-container');
+if (readContainer != null) {
+    async function testimony(){
+        var url = new URL(window.location.href);
+       
+        var id = url.searchParams.get("id");
+        let testimoniesDataRef = doc(db, "testimonies", id);
+
+        let docs = await getDoc(testimoniesDataRef).then(async (testi) => {
+           
+            let imgs = readContainer.querySelector('.img');
+            let quote = readContainer.querySelector('.quote');
+
+            let data = testi.data();
+            let travel = data.travel;
+            let traveler = data.traveler;
+
+            let citation = data.citation;
+            quote.innerHTML = citation;
+
+            let img = data.image;
+            img.forEach(img => {
+                let imgDiv = document.createElement('div');
+                imgDiv.classList.add('img-div');
+                imgDiv.style.backgroundImage = "url(" + img + ")";
+                imgs.appendChild(imgDiv);
+            });
+
+            let travelerDataRef = doc(db, "users", traveler);
+            let travelerData = await getDoc(travelerDataRef).then((doc) => {
+                let travelerDiv = readContainer.querySelector('.traveler');
+                let data = doc.data();
+                let firstName = data.firstName;
+                let lastName = data.lastName;
+                let fullName = firstName + " " + lastName;
+                travelerDiv.innerHTML = fullName;
+            }).catch((error) => {
+                console.log(error);
+            });
+            
+            let editorWrite = new EditorJS({
+                holderId: 'content',
+                tools: {
+                    header: {
+                        class: Header,
+                        inlineToolbar: ['link'],
+                    },
+                    embed: {
+                        class: Embed,
+                        inlineToolbar: false,
+                        config: {
+                            services: {
+                                youtube: true,
+                                coub: true,
+                            }
+                        }
+                    },
+                    image: {
+                        class: ImageTool,
+                    },
+                },
+                data: data.content,
+                readOnly: true,
+            });
+
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+    testimony();
+    
+}
 
 
 // function global

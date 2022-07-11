@@ -73,6 +73,7 @@ if (add != null){
             let location = document.querySelector('#lieu-travel').value;
 
             let description = document.querySelector('#description-travel').value;
+
             let images = document.querySelector('#image-input').files;
             let imagesArray = [];
             let imagesUrl = [];
@@ -99,25 +100,6 @@ if (add != null){
                 })
                
             }
-            
-            // imagesArray.forEach(async (img) => {
-            //     console.log(img)
-            //     let fileName = renameImg(img.name);
-            //     let storageRef = ref(storage, fileName);
-            //     await uploadBytes(storageRef, img).then(async (snapshot) => {
-            //         let url = await getDownloadURL(storageRef).then((url) => {
-                        
-            //             return url;
-
-            //         }).catch((error) => {
-            //             console.log(error);
-            //         });
-            //         imagesUrl.push(url);
-
-            //     }).catch((error) => {
-            //         console.log(error);
-            //     });
-            // })
 
             console.log(imagesUrl);
 
@@ -147,7 +129,7 @@ if (add != null){
 
             await addDoc(collection(db, "travels"), {
                 name: name,
-                description: description,
+                desc: description,
                 content : outputData,
                 price: price,
                 image: imagesUrl,
