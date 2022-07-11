@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification</title>
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="filter-background"></div>
+        <h1 class="logo-container">
+            <img class="logo" src="../images/logo/logo.svg">
+        </h1>
+        <nav>
+            <ul class="nav-container">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../quiz/index.html">Créer votre expérience</a></li>
+                <li><a href="../../blog/index.html">le blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="signIn-signUp-Container">
+        <div id="signUp">
+            <div class="header">
+                <h1>Inscription</h1>
+            </div>
+            <form>
+                <div class="group">
+                    <input id="txtFirstName" type="firstname">
+                    <label>First name</label>
+                </div>
+                <div class="group">
+                    <input id="txtLastName" type="lastname">
+                    <label>Last name</label>
+                </div>
+                <div class="group">
+                    <input id="txtEmailSignUp" type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="group">
+                    <input id="txtPasswordSignUp" type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="group">
+                    <input id="txtPhoneNumber" type="tel">
+                    <label>Phone number</label>
+                </div>
+                <button id="btnSignup" type="button" class="button buttonBlue">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Compte</a> </li>
+            </ul>
+            <ul>
+                <li><a id="insta" href="https://www.instagram.com/escapee_travel/" target="_blank"><img
+                            src="../../images/icon/Insta.svg" alt="Instagram"></a> </li>
+                <li><a id="twitch" href="https://www.twitch.tv/escapee_travel" target="_blank"><img
+                            src="../../images/icon/Twitch.svg" alt="Twitch"></a> </li>
+                <li><a id="youtube" href="#" target="_blank"><img src="../../images/icon/Youtube.svg" alt="Youtube"></a>
+                </li>
+                <li><a id="tripadvisor" href="" target="_blank"><img src="../../images/icon/tripadvisor.svg"
+                            alt="Paanteon"></a>
+                </li>
+            </ul>
+            <div>
+                <p>© 2022 escapee</p>
+                <p>
+                    <a href="../../privacy-policy/">Mentions légales & Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="../../scripts/firebaseAuth.js"></script>
+</body>
+
+</html>

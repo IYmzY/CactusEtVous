@@ -1,0 +1,145 @@
+main#edit-container,
+main#add-container {
+  > section {
+    &:first-child {
+      height: 50vh;
+      width: 100%;
+      background-color: #093a3a;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      text-align: center;
+      h1 {
+        color: #fff;
+        font-size: 4rem;
+      }
+    }
+    &:last-child{
+        width: 70%;
+        margin: 0 auto;
+    }
+  }
+  section div#edit,
+  section div#add {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    input,
+    textarea,
+    select,
+    .codex-editor {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: white;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select,
+    .codex-editor,
+    #display-image {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+
+    button#edit-button,
+    button#save-button {
+      background-color: #093a3a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #fff;
+        color: #093a3a;
+      }
+    }
+    @media screen and (max-width: 710px) {
+      padding: 0;
+    }
+  }
+}
+
+main#read-container{
+  > section{
+    margin-top: 200px;
+    width: 100%;
+    min-height: 100vh;
+    > article:last-child{
+      margin-top: 50px;
+    }
+    > article:first-child{
+      height: 50vh;
+      width: 70%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      >div:first-child{
+        width:30%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        > div{
+          padding: 30px;
+        }
+        > div:first-child{
+          position: absolute;
+          width: 700px;
+          
+          top: 40px;
+          h2{
+            font-size: 3rem;
+            font-weight: bold;
+            font-style: italic;
+            color:#106666;
+          }
+          
+        }
+        h4{
+          font-size: 2.3rem;
+          font-weight: bold;
+        }
+
+      }
+      >div:last-child{
+        width:70% ;
+        display: flex;
+       
+        >div{
+          height: 60%;
+        }
+        > div:first-child{
+          height: 100%;
+        }
+      }
+    }
+  }
+  .ce-block__content{
+    max-width: 70%;
+  }
+  .img{
+    height: 100%;
+    .img-div{
+      width:calc(100% / 3);
+      background-position: center;
+      background-size: cover;
+    }
+
+  }
+  
+}
